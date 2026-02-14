@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 PAM Expert Training Program 2026</title>
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --linux: #f39c12;
+            --azure: #0078d4;
+            --aws: #ff9900;
+            --ai: #9b59b6;
+            --iac: #27ae60;
+            --work: #e74c3c;
+            --relax: #1abc9c;
+            --workout: #e91e63;
+            --success: #2ecc71;
+            --warning: #f1c40f;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+
+        .nav-tab {
+            padding: 12px 25px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Daily Schedule */
+        .schedule-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .day-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .day-header {
+            padding: 15px 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .day-header.weekday { background: linear-gradient(90deg, #3498db, #2980b9); }
+        .day-header.friday { background: linear-gradient(90deg, #9b59b6, #8e44ad); }
+        .day-header.weekend { background: linear-gradient(90deg, #27ae60, #229954); }
+
+        .time-slot {
+            display: flex;
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            align-items: center;
+            gap: 15px;
+        }
+
+        .time-slot:last-child {
+            border-bottom: none;
+        }
+
+        .time {
+            font-weight: bold;
+            min-width: 120px;
+            color: #bdc3c7;
+        }
+
+        .activity {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-tag {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .tag-work { background: var(--work); }
+        .tag-linux { background: var(--linux); color: #000; }
+        .tag-azure { background: var(--azure); }
+        .tag-aws { background: var(--aws); color: #000; }
+        .tag-ai { background: var(--ai); }
+        .tag-iac { background: var(--iac); }
+        .tag-relax { background: var(--relax); }
+        .tag-workout { background: var(--workout); }
+        .tag-sleep { background: #34495e; }
+
+        /* Monthly Plan */
+        .month-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .month-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .month-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .month-card.phase-1 { border-left-color: #3498db; }
+        .month-card.phase-2 { border-left-color: #9b59b6; }
+        .month-card.phase-3 { border-left-color: #e74c3c; }
+        .month-card.phase-4 { border-left-color: #27ae60; }
+
+        .topic-list {
+            list-style: none;
+        }
+
+        .topic-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topic-list li:last-child {
+            border-bottom: none;
+        }
+
+        .month-courses {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px dashed rgba(255,255,255,0.2);
+            font-size: 0.85em;
+            line-height: 1.8;
+        }
+
+        .month-courses strong {
+            color: var(--accent);
+        }
+
+        .month-courses a {
+            color: #6dd5fa;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .month-courses a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .cert-badge {
+            background: linear-gradient(135deg, #f39c12, #e74c3c);
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* Courses */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .course-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 15px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .course-category {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .cat-linux { background: var(--linux); color: #000; }
+        .cat-azure { background: var(--azure); }
+        .cat-ai { background: var(--ai); }
+        .cat-iac { background: var(--iac); }
+        .cat-git { background: #333; }
+
+        .course-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .course-card p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #bdc3c7;
+        }
+
+        .course-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .course-link:hover {
+            background: var(--secondary);
+        }
+
+        /* Progress Tracker */
+        .tracker-section {
+            background: rgba(255,255,255,0.08);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .tracker-section h3 {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cert-tracker {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .cert-item {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cert-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .cert-item.completed {
+            background: rgba(46, 204, 113, 0.2);
+            border: 1px solid var(--success);
+        }
+
+        .cert-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .cert-item.completed .cert-checkbox {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .cert-info h4 {
+            font-size: 0.95rem;
+        }
+
+        .cert-info p {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Weekly Progress */
+        .week-tracker {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .week-day {
+            text-align: center;
+            padding: 15px 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .week-day:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .week-day.done {
+            background: rgba(46, 204, 113, 0.3);
+            border: 1px solid var(--success);
+        }
+
+        .week-day .day-name {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .week-day .hours {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        /* Podcasts */
+        .podcast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .podcast-card {
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .podcast-icon {
+            font-size: 2.5rem;
+        }
+
+        .podcast-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .podcast-info p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Notes Section */
+        .notes-area {
+            width: 100%;
+            min-height: 200px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 15px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .notes-area:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Diary Log */
+        .diary-form {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: end;
+        }
+
+        .diary-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--accent);
+            font-size: 0.9em;
+        }
+
+        .diary-form input, .diary-form select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(0,0,0,0.3);
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .diary-form input:focus, .diary-form select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .diary-form select option {
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .diary-add-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1em;
+            transition: transform 0.2s;
+        }
+
+        .diary-add-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .diary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .diary-table th {
+            background: rgba(102, 126, 234, 0.3);
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .diary-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .diary-table tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .diary-delete-btn {
+            background: rgba(231, 76, 60, 0.7);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .diary-delete-btn:hover {
+            background: rgba(231, 76, 60, 1);
+        }
+
+        .diary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .diary-stat-card {
+            background: rgba(255,255,255,0.08);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .diary-stat-card .value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .diary-stat-card .label {
+            font-size: 0.85em;
+            opacity: 0.8;
+        }
+
+        .category-azure { color: #0078d4; }
+        .category-aws { color: #ff9900; }
+        .category-ai { color: #9b59b6; }
+        .category-git { color: #e74c3c; }
+        .category-terraform { color: #7b42bc; }
+        .category-linux { color: #f39c12; }
+
+        @media (max-width: 768px) {
+            .diary-form {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tips */
+        .tip-box {
+            background: linear-gradient(135deg, rgba(241, 196, 15, 0.2), rgba(243, 156, 18, 0.2));
+            border-left: 4px solid var(--warning);
+            padding: 15px 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
+        }
+
+        .tip-box h4 {
+            color: var(--warning);
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            opacity: 0.7;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .week-tracker {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .nav-tab {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #fff;
+                color: #000;
+            }
+
+            .nav-tabs, .cert-checkbox {
+                display: none;
+            }
+
+            .section {
+                display: block !important;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🚀 PAM Expert Training Program 2026</h1>
+            <p>От CyberArk специалист към Cloud IAM & AI Security Expert</p>
+            
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">месеца</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">часа/седмица</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">сертификата</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="completedCerts">0</div>
+                    <div class="stat-label">завършени</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="totalHours">0</div>
+                    <div class="stat-label">часа учене</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('daily', this)">📅 Дневна програма</button>
+            <button class="nav-tab" onclick="showSection('monthly', this)">📆 12-месечен план</button>
+            <button class="nav-tab" onclick="showSection('courses', this)">🎓 Udemy курсове</button>
+            <button class="nav-tab" onclick="showSection('resources', this)">📚 Ресурси</button>
+            <button class="nav-tab" onclick="showSection('tracker', this)">✅ Прогрес</button>
+            <button class="nav-tab" onclick="showSection('diary', this)">📓 Дневник</button>
+            <button class="nav-tab" onclick="showSection('notes', this)">📝 Бележки</button>
+        </nav>
+
+        <!-- Daily Schedule Section -->
+        <section id="daily" class="section active">
+            <h2 style="margin-bottom: 20px;">📅 Дневна програма (Понеделник - Неделя)</h2>
+            
+            <div class="tip-box">
+                <h4>💡 Философия на плана</h4>
+                <p>Баланс между работа, учене, здраве и почивка. Уикендът е за интензивно учене, петък - за релакс!</p>
+            </div>
+
+            <div class="schedule-grid">
+                <!-- Monday - Thursday -->
+                <div class="day-card">
+                    <div class="day-header weekday">📘 ПОНЕДЕЛНИК - ЧЕТВЪРТЪК (Работни дни)</div>
+                    
+                    <div class="time-slot">
+                        <span class="time">06:30 - 07:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-sleep">🌅</span>
+                            Събуждане, сутрешна рутина
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">07:00 - 07:30</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-workout">💪</span>
+                            Тренировка (30 мин)
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">07:30 - 08:30</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-sleep">🍳</span>
+                            Закуска, подготовка
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">09:00 - 18:30</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-work">💼</span>
+                            Работа (CyberArk PAM)
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">18:30 - 19:30</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-relax">🍽️</span>
+                            Вечеря, почивка
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">19:30 - 20:30</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-azure">☁️</span>
+                            <strong>УЧЕНЕ: Azure/AI</strong> (1 час)
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">20:30 - 21:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-relax">📺</span>
+                            Релакс, свободно време
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">21:00 - 22:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-aws">🔶</span>
+                            <strong>УЧЕНЕ: AWS IAM</strong> (1 час) или почивка
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">22:00 - 23:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-relax">🌙</span>
+                            Подготовка за сън, четене
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Friday -->
+                <div class="day-card">
+                    <div class="day-header friday">🎉 ПЕТЪК (Лек ден)</div>
+                    
+                    <div class="time-slot">
+                        <span class="time">06:30 - 07:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-sleep">🌅</span>
+                            Събуждане
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">07:00 - 07:30</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-workout">💪</span>
+                            Тренировка (30 мин)
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">09:00 - 18:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-work">💼</span>
+                            Работа
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">18:00 - 19:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-relax">🍽️</span>
+                            Вечеря
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">19:00 - 20:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-ai">🎧</span>
+                            <strong>Подкасти</strong> (AI/Security/Tech)
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">20:00 - ...</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-relax">🍻</span>
+                            Свободно време, социален живот
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saturday -->
+                <div class="day-card">
+                    <div class="day-header weekend">📚 СЪБОТА (Интензивен ден)</div>
+                    
+                    <div class="time-slot">
+                        <span class="time">08:00 - 09:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-sleep">🌅</span>
+                            Събуждане, закуска
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">09:00 - 11:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-azure">☁️</span>
+                            <strong>AZURE</strong> (2 часа) - Основен фокус
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">11:00 - 11:15</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-relax">☕</span>
+                            Почивка
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">11:15 - 13:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-ai">🤖</span>
+                            <strong>AI/ML</strong> (1:45 часа)
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">13:00 - 14:30</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-relax">🍽️</span>
+                            Обяд, почивка
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">14:30 - 15:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-workout">💪</span>
+                            Тренировка (30 мин)
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">15:30 - 17:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-aws">🔶</span>
+                            <strong>AWS IAM & Security</strong> (1:30 часа)
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">17:00 - ...</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-relax">🌆</span>
+                            Свободно време, излизане
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunday -->
+                <div class="day-card">
+                    <div class="day-header weekend">📖 НЕДЕЛЯ (Практика & Ревизия)</div>
+                    
+                    <div class="time-slot">
+                        <span class="time">08:30 - 09:30</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-sleep">🌅</span>
+                            Събуждане, закуска
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">09:30 - 11:30</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-azure">☁️</span>
+                            <strong>AZURE</strong> (2 часа) - Labs & Практика
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">11:30 - 12:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-relax">☕</span>
+                            Почивка
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">12:00 - 13:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-ai">🤖</span>
+                            <strong>AI Практика</strong> (1 час)
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">13:00 - 14:30</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-relax">🍽️</span>
+                            Обяд, почивка
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">14:30 - 15:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-workout">💪</span>
+                            Тренировка (30 мин)
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">15:30 - 16:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-linux">🐧</span>
+                            <strong>Linux</strong> (30 мин) - поддържащо
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">16:00 - 17:00</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-iac">🔧</span>
+                            <strong>Terraform/Git + Ревизия</strong> (1 час)
+                        </div>
+                    </div>
+                    <div class="time-slot">
+                        <span class="time">17:30 - ...</span>
+                        <div class="activity">
+                            <span class="activity-tag tag-relax">🏠</span>
+                            Почивка, подготовка за седмицата
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box" style="margin-top: 25px;">
+                <h4>📊 Седмично разпределение (15 часа)</h4>
+                <p>
+                    <strong>☁️ Azure:</strong> 5 часа | 
+                    <strong>🔶 AWS:</strong> 3.5 часа | 
+                    <strong>🤖 AI:</strong> 4 часа | 
+                    <strong>🔧 Git/Terraform:</strong> 2 часа | 
+                    <strong>🐧 Linux:</strong> 0.5 часа (поддържащо)
+                </p>
+            </div>
+        </section>
+
+        <!-- Monthly Plan Section -->
+        <section id="monthly" class="section">
+            <h2 style="margin-bottom: 20px;">📆 12-месечен план (Февруари 2026 - Януари 2027)</h2>
+            
+            <div class="month-grid">
+                <!-- Phase 1 -->
+                <div class="month-card phase-1">
+                    <h3>📅 Месец 1 (Февруари 2026)</h3>
+                    <ul class="topic-list">
+                        <li>☁️ Azure: Portal, Resource Groups, ARM</li>
+                        <li>🔶 AWS: Конзола, IAM основи</li>
+                        <li>🤖 AI: Въведение в ML, основни концепции</li>
+                        <li>🔧 Git: Основи - clone, commit, push, pull</li>
+                    </ul>
+                    <div class="month-courses">
+                        <strong>📚 Курсове:</strong>
+                        <a href="https://www.udemy.com/course/az900-azure/" target="_blank">AZ-900 (Scott Duffy)</a> |
+                        <a href="https://www.udemy.com/course/aws-certified-cloud-practitioner-new/" target="_blank">AWS CCP (Maarek)</a> |
+                        <a href="https://www.udemy.com/course/git-and-github-bootcamp/" target="_blank">Git Bootcamp (Colt Steele)</a> |
+                        <a href="https://www.udemy.com/course/ai-900-azure-ai-fundamentals/" target="_blank">AI-900 (Scott Duffy)</a>
+                    </div>
+                </div>
+
+                <div class="month-card phase-1">
+                    <h3>📅 Месец 2 (Март 2026)</h3>
+                    <ul class="topic-list">
+                        <li>☁️ Azure: <span class="cert-badge">📜 AZ-900</span> подготовка и изпит</li>
+                        <li>🔶 AWS: IAM Users, Groups, Policies</li>
+                        <li>🤖 AI: Neural Networks, Deep Learning основи</li>
+                        <li>🔧 Git: Branching, merging, GitHub workflow</li>
+                    </ul>
+                    <div class="month-courses">
+                        <strong>📚 Курсове:</strong>
+                        <a href="https://www.udemy.com/course/az900-azure/" target="_blank">AZ-900 (Scott Duffy)</a> |
+                        <a href="https://www.udemy.com/course/aws-iam-identity-access-management/" target="_blank">AWS IAM Deep Dive (Neal Davis)</a> |
+                        <a href="https://www.udemy.com/course/machinelearning/" target="_blank">ML A-Z (Kirill)</a> |
+                        <a href="https://www.udemy.com/course/git-and-github-bootcamp/" target="_blank">Git Bootcamp</a>
+                    </div>
+                </div>
+
+                <div class="month-card phase-1">
+                    <h3>📅 Месец 3 (Април 2026)</h3>
+                    <ul class="topic-list">
+                        <li>☁️ Azure: Security Fundamentals</li>
+                        <li>🔶 AWS: <span class="cert-badge">📜 AWS CCP</span> подготовка и изпит</li>
+                        <li>🤖 AI: <span class="cert-badge">📜 AI-900</span> подготовка и изпит</li>
+                        <li>🔧 Git: <span class="cert-badge">📜 GitHub Foundations</span></li>
+                    </ul>
+                    <div class="month-courses">
+                        <strong>📚 Курсове:</strong>
+                        <a href="https://www.udemy.com/course/aws-certified-cloud-practitioner-new/" target="_blank">AWS CCP (Maarek)</a> |
+                        <a href="https://www.udemy.com/course/ai-900-azure-ai-fundamentals/" target="_blank">AI-900 (Scott Duffy)</a> |
+                        <a href="https://www.udemy.com/course/github-actions/" target="_blank">GitHub Actions (Ali Alaa)</a> |
+                        <a href="https://www.udemy.com/course/sc-900-microsoft-security-compliance-identity/" target="_blank">SC-900 (Scott Duffy)</a>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="month-card phase-2">
+                    <h3>📅 Месец 4 (Май 2026)</h3>
+                    <ul class="topic-list">
+                        <li>☁️ Azure: <span class="cert-badge">📜 SC-900</span> подготовка и изпит</li>
+                        <li>🔶 AWS: IAM Roles, STS, Cross-account</li>
+                        <li>🤖 AI: Large Language Models (LLMs)</li>
+                        <li>🔧 Terraform: Основи, HCL синтаксис</li>
+                    </ul>
+                    <div class="month-courses">
+                        <strong>📚 Курсове:</strong>
+                        <a href="https://www.udemy.com/course/sc-900-microsoft-security-compliance-identity/" target="_blank">SC-900 (Scott Duffy)</a> |
+                        <a href="https://www.udemy.com/course/terraform-beginner-to-advanced/" target="_blank">Terraform (Zeal Vora)</a> |
+                        <a href="https://www.udemy.com/course/chatgpt-complete-guide/" target="_blank">ChatGPT/LLM Guide</a> |
+                        <a href="https://www.udemy.com/course/aws-iam-identity-access-management/" target="_blank">AWS IAM (Neal Davis)</a>
+                    </div>
+                </div>
+
+                <div class="month-card phase-2">
+                    <h3>📅 Месец 5 (Юни 2026)</h3>
+                    <ul class="topic-list">
+                        <li>☁️ Azure: Entra ID - Users, Groups, Apps</li>
+                        <li>🔶 AWS: Organizations, SSO, Identity Center</li>
+                        <li>🤖 AI: Prompt Engineering</li>
+                        <li>🔧 Terraform: Providers, State management</li>
+                    </ul>
+                    <div class="month-courses">
+                        <strong>📚 Курсове:</strong>
+                        <a href="https://www.udemy.com/course/sc-300-course/" target="_blank">SC-300 (Alan Rodrigues)</a> |
+                        <a href="https://www.udemy.com/course/chatgpt-complete-guide/" target="_blank">Prompt Engineering</a> |
+                        <a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c03/" target="_blank">AWS SAA (Maarek)</a> |
+                        <a href="https://www.udemy.com/course/terraform-beginner-to-advanced/" target="_blank">Terraform (Zeal Vora)</a>
+                    </div>
+                </div>
+
+                <div class="month-card phase-2">
+                    <h3>📅 Месец 6 (Юли 2026)</h3>
+                    <ul class="topic-list">
+                        <li>☁️ Azure: <span class="cert-badge">📜 SC-300</span> ⭐ Identity Admin</li>
+                        <li>🔶 AWS: Secrets Manager, KMS</li>
+                        <li>🤖 AI: Azure OpenAI Service</li>
+                        <li>🔧 Terraform: Modules, Azure + AWS providers</li>
+                    </ul>
+                    <div class="month-courses">
+                        <strong>📚 Курсове:</strong>
+                        <a href="https://www.udemy.com/course/sc-300-course/" target="_blank">SC-300 (Alan Rodrigues)</a> |
+                        <a href="https://www.udemy.com/course/langchain/" target="_blank">Azure OpenAI + LangChain</a> |
+                        <a href="https://www.udemy.com/course/aws-certified-security-specialty/" target="_blank">AWS Security (Maarek)</a>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="month-card phase-3">
+                    <h3>📅 Месец 7 (Август 2026)</h3>
+                    <ul class="topic-list">
+                        <li>☁️ Azure: Security Center, Defender</li>
+                        <li>🔶 AWS: <span class="cert-badge">📜 AWS SAA</span> Solutions Architect</li>
+                        <li>🤖 AI: AI в сигурността, UEBA</li>
+                        <li>🔧 Terraform: CyberArk интеграция</li>
+                    </ul>
+                    <div class="month-courses">
+                        <strong>📚 Курсове:</strong>
+                        <a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c03/" target="_blank">AWS SAA (Maarek)</a> |
+                        <a href="https://www.udemy.com/course/az-500-course/" target="_blank">AZ-500 (Scott Duffy)</a> |
+                        <a href="https://docs.cyberark.com/" target="_blank">CyberArk Docs 📖</a> |
+                        <a href="https://learn.microsoft.com/en-us/azure/sentinel/" target="_blank">AI + Sentinel 📖</a>
+                    </div>
+                </div>
+
+                <div class="month-card phase-3">
+                    <h3>📅 Месец 8 (Септември 2026)</h3>
+                    <ul class="topic-list">
+                        <li>☁️ Azure: Key Vault, Managed Identities</li>
+                        <li>🔶 AWS: Security Hub, GuardDuty, CloudTrail</li>
+                        <li>🤖 AI: Anomaly Detection</li>
+                        <li>🔧 CI/CD: GitHub Actions pipelines</li>
+                    </ul>
+                    <div class="month-courses">
+                        <strong>📚 Курсове:</strong>
+                        <a href="https://www.udemy.com/course/az-500-course/" target="_blank">AZ-500 (Scott Duffy)</a> |
+                        <a href="https://www.udemy.com/course/aws-certified-security-specialty/" target="_blank">AWS Security (Maarek)</a> |
+                        <a href="https://www.udemy.com/course/github-actions/" target="_blank">GitHub Actions</a> |
+                        <a href="https://learn.microsoft.com/en-us/azure/ai-services/anomaly-detector/" target="_blank">Azure Anomaly Detector 📖</a>
+                    </div>
+                </div>
+
+                <div class="month-card phase-3">
+                    <h3>📅 Месец 9 (Октомври 2026)</h3>
+                    <ul class="topic-list">
+                        <li>☁️ Azure: <span class="cert-badge">📜 AZ-500</span> Security Engineer</li>
+                        <li>🔶 AWS: IAM advanced, Permission Boundaries</li>
+                        <li>🤖 AI: Azure Sentinel + AI</li>
+                        <li>🔧 Terraform: <span class="cert-badge">📜 Terraform Associate</span></li>
+                    </ul>
+                    <div class="month-courses">
+                        <strong>📚 Курсове:</strong>
+                        <a href="https://www.udemy.com/course/az-500-course/" target="_blank">AZ-500 (Scott Duffy)</a> |
+                        <a href="https://www.udemy.com/course/terraform-beginner-to-advanced/" target="_blank">Terraform Cert (Zeal Vora)</a> |
+                        <a href="https://www.udemy.com/course/aws-iam-identity-access-management/" target="_blank">AWS IAM Advanced</a> |
+                        <a href="https://learn.microsoft.com/en-us/azure/sentinel/overview" target="_blank">Sentinel + AI 📖</a>
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="month-card phase-4">
+                    <h3>📅 Месец 10 (Ноември 2026)</h3>
+                    <ul class="topic-list">
+                        <li>☁️ Azure: PIM advanced, Governance</li>
+                        <li>🔶 AWS: <span class="cert-badge">📜 AWS Security Specialty</span> подготовка</li>
+                        <li>🤖 AI: Copilot, AI assistants</li>
+                        <li>🔧 Terraform: Multi-cloud deployment</li>
+                    </ul>
+                    <div class="month-courses">
+                        <strong>📚 Курсове:</strong>
+                        <a href="https://www.udemy.com/course/aws-certified-security-specialty/" target="_blank">AWS Security Specialty (Maarek)</a> |
+                        <a href="https://www.udemy.com/course/microsoft-365-copilot/" target="_blank">Microsoft Copilot</a> |
+                        <a href="https://learn.microsoft.com/en-us/entra/identity/" target="_blank">MS Learn PIM 📖</a>
+                    </div>
+                </div>
+
+                <div class="month-card phase-4">
+                    <h3>📅 Месец 11 (Декември 2026)</h3>
+                    <ul class="topic-list">
+                        <li>☁️ Multi-cloud: Azure + AWS интеграция</li>
+                        <li>🔶 AWS: <span class="cert-badge">📜 AWS Security Specialty</span> изпит</li>
+                        <li>🤖 AI: CyberArk CORA AI</li>
+                        <li>🔧 Проекти: Portfolio building</li>
+                    </ul>
+                    <div class="month-courses">
+                        <strong>📚 Курсове:</strong>
+                        <a href="https://www.udemy.com/course/aws-certified-security-specialty/" target="_blank">AWS Security (финализация)</a> |
+                        <a href="https://docs.cyberark.com/identity/latest/en/Content/AI/CORA-AI.htm" target="_blank">CyberArk CORA Docs 📖</a>
+                    </div>
+                </div>
+
+                <div class="month-card phase-4">
+                    <h3>📅 Месец 12 (Януари 2027)</h3>
+                    <ul class="topic-list">
+                        <li>📚 Ревизия на всички теми</li>
+                        <li>🎯 Финални проекти</li>
+                        <li>📝 Документация на портфолио</li>
+                        <li>🎉 Празнуване на успеха!</li>
+                    </ul>
+                    <div class="month-courses">
+                        <strong>📚 Ресурси:</strong>
+                        <a href="https://github.com/" target="_blank">GitHub Portfolio</a> |
+                        <a href="https://www.linkedin.com/" target="_blank">LinkedIn Update</a> |
+                        <a href="https://www.credly.com/" target="_blank">Credly Badges</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="section">
+            <h2 style="margin-bottom: 20px;">🎓 Препоръчани Udemy курсове</h2>
+            
+            <div class="course-grid">
+                <!-- Linux (Намалено) -->
+                <div class="course-card">
+                    <span class="course-category cat-linux">🐧 Linux</span>
+                    <h4>Linux Mastery: Master the Linux Command Line</h4>
+                    <p>Instructor: Ziyad Yehia</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.7</span>
+                        <span>⏱️ 11.5 часа</span>
+                        <span>📊 Beginner</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/linux-mastery/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <!-- AWS (НОВ ФОКУС) -->
+                <div class="course-card">
+                    <span class="course-category" style="background: #ff9900; color: #000;">🔶 AWS</span>
+                    <h4>AWS Certified Cloud Practitioner CLF-C02</h4>
+                    <p>Instructor: Stephane Maarek</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.7</span>
+                        <span>⏱️ 15 часа</span>
+                        <span>📜 Certification</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/aws-certified-cloud-practitioner-new/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <div class="course-card">
+                    <span class="course-category" style="background: #ff9900; color: #000;">🔶 AWS</span>
+                    <h4>AWS Certified Solutions Architect Associate SAA-C03</h4>
+                    <p>Instructor: Stephane Maarek</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.7</span>
+                        <span>⏱️ 27 часа</span>
+                        <span>📜 Certification</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c03/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <div class="course-card">
+                    <span class="course-category" style="background: #ff9900; color: #000;">🔶 AWS</span>
+                    <h4>AWS Certified Security Specialty SCS-C02</h4>
+                    <p>Instructor: Stephane Maarek</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.7</span>
+                        <span>⏱️ 14 часа</span>
+                        <span>📜 Certification ⭐</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/aws-certified-security-specialty/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <div class="course-card">
+                    <span class="course-category" style="background: #ff9900; color: #000;">🔶 AWS</span>
+                    <h4>AWS IAM: Identity & Access Management Deep Dive</h4>
+                    <p>Instructor: Neal Davis</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.6</span>
+                        <span>⏱️ 8 часа</span>
+                        <span>📊 Intermediate</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/aws-iam-identity-access-management/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <!-- Azure -->
+                <div class="course-card">
+                    <span class="course-category cat-azure">☁️ Azure</span>
+                    <h4>AZ-900: Microsoft Azure Fundamentals</h4>
+                    <p>Instructor: Scott Duffy</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.7</span>
+                        <span>⏱️ 10 часа</span>
+                        <span>📊 Beginner</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/az900-azure/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <div class="course-card">
+                    <span class="course-category cat-azure">☁️ Azure</span>
+                    <h4>SC-900: Microsoft Security Fundamentals</h4>
+                    <p>Instructor: Scott Duffy</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.6</span>
+                        <span>⏱️ 6 часа</span>
+                        <span>📊 Beginner</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/sc-900-microsoft-security-compliance-identity/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <div class="course-card">
+                    <span class="course-category cat-azure">☁️ Azure</span>
+                    <h4>SC-300: Microsoft Identity and Access Administrator</h4>
+                    <p>Instructor: John Savill / Alan Rodrigues</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.7</span>
+                        <span>⏱️ 15 часа</span>
+                        <span>📊 Intermediate</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/sc-300-course/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <div class="course-card">
+                    <span class="course-category cat-azure">☁️ Azure</span>
+                    <h4>AZ-500: Microsoft Azure Security Technologies</h4>
+                    <p>Instructor: Scott Duffy</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.6</span>
+                        <span>⏱️ 17 часа</span>
+                        <span>📊 Advanced</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/az-500-course/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <!-- AI -->
+                <div class="course-card">
+                    <span class="course-category cat-ai">🤖 AI</span>
+                    <h4>AI-900: Microsoft Azure AI Fundamentals</h4>
+                    <p>Instructor: Scott Duffy</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.6</span>
+                        <span>⏱️ 6 часа</span>
+                        <span>📊 Beginner</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/ai-900-azure-ai-fundamentals/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <div class="course-card">
+                    <span class="course-category cat-ai">🤖 AI</span>
+                    <h4>ChatGPT Complete Guide: Prompt Engineering</h4>
+                    <p>Instructor: Julian Melanson</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.5</span>
+                        <span>⏱️ 25 часа</span>
+                        <span>📊 All Levels</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/chatgpt-complete-guide/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <div class="course-card">
+                    <span class="course-category cat-ai">🤖 AI</span>
+                    <h4>Machine Learning A-Z: AI, Python & R</h4>
+                    <p>Instructor: Kirill Eremenko</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.5</span>
+                        <span>⏱️ 44 часа</span>
+                        <span>📊 All Levels</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/machinelearning/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <div class="course-card">
+                    <span class="course-category cat-ai">🤖 AI</span>
+                    <h4>Azure OpenAI & LangChain: Build AI Apps</h4>
+                    <p>Instructor: Eden Marco</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.7</span>
+                        <span>⏱️ 12 часа</span>
+                        <span>📊 Intermediate</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/langchain/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <!-- Git -->
+                <div class="course-card">
+                    <span class="course-category cat-git">🔧 Git</span>
+                    <h4>The Git & GitHub Bootcamp</h4>
+                    <p>Instructor: Colt Steele</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.7</span>
+                        <span>⏱️ 17 часа</span>
+                        <span>📊 All Levels</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/git-and-github-bootcamp/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <!-- Terraform -->
+                <div class="course-card">
+                    <span class="course-category cat-iac">🔧 Terraform</span>
+                    <h4>HashiCorp Certified: Terraform Associate</h4>
+                    <p>Instructor: Zeal Vora</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.6</span>
+                        <span>⏱️ 17 часа</span>
+                        <span>📊 Certification</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/terraform-beginner-to-advanced/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+
+                <div class="course-card">
+                    <span class="course-category cat-iac">🔧 Terraform</span>
+                    <h4>Terraform on Azure with IaC DevOps</h4>
+                    <p>Instructor: Kalyan Reddy</p>
+                    <div class="course-meta">
+                        <span>⭐ 4.7</span>
+                        <span>⏱️ 25 часа</span>
+                        <span>📊 All Levels</span>
+                    </div>
+                    <a href="https://www.udemy.com/course/terraform-on-azure-with-iac-azure-devops-sre/" target="_blank" class="course-link">Отвори в Udemy</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="section">
+            <h2 style="margin-bottom: 20px;">📚 Допълнителни безплатни ресурси</h2>
+            
+            <div class="month-grid">
+                <div class="month-card">
+                    <h3>📘 Microsoft Learn (Безплатно)</h3>
+                    <ul class="topic-list">
+                        <li>🔗 <a href="https://learn.microsoft.com/en-us/certifications/azure-fundamentals/" style="color: #3498db;">AZ-900 Learning Path</a></li>
+                        <li>🔗 <a href="https://learn.microsoft.com/en-us/certifications/security-compliance-and-identity-fundamentals/" style="color: #3498db;">SC-900 Learning Path</a></li>
+                        <li>🔗 <a href="https://learn.microsoft.com/en-us/certifications/identity-and-access-administrator/" style="color: #3498db;">SC-300 Learning Path</a></li>
+                        <li>🔗 <a href="https://learn.microsoft.com/en-us/certifications/azure-security-engineer/" style="color: #3498db;">AZ-500 Learning Path</a></li>
+                        <li>🔗 <a href="https://learn.microsoft.com/en-us/certifications/azure-ai-fundamentals/" style="color: #3498db;">AI-900 Learning Path</a></li>
+                    </ul>
+                </div>
+
+                <div class="month-card">
+                    <h3>� AWS Resources</h3>
+                    <ul class="topic-list">
+                        <li>🔗 <a href="https://aws.amazon.com/training/digital/" style="color: #ff9900;">AWS Skill Builder</a> - Официално (Free Tier)</li>
+                        <li>🔗 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/" style="color: #ff9900;">AWS IAM User Guide</a> - Документация</li>
+                        <li>🔗 <a href="https://workshops.aws/" style="color: #ff9900;">AWS Workshops</a> - Hands-on Labs</li>
+                        <li>🔗 <a href="https://www.youtube.com/@amazonwebservices" style="color: #ff9900;">AWS YouTube</a> - Официален канал</li>
+                        <li>🔗 <a href="https://tutorialsdojo.com/aws-cheat-sheets/" style="color: #ff9900;">Tutorials Dojo</a> - Cheat Sheets</li>
+                    </ul>
+                </div>
+
+                <div class="month-card">
+                    <h3>🐧 Linux Resources (Поддържащо)</h3>
+                    <ul class="topic-list">
+                        <li>🔗 <a href="https://linuxjourney.com/" style="color: #f39c12;">Linux Journey</a> - Интерактивно</li>
+                        <li>🔗 <a href="https://explainshell.com/" style="color: #f39c12;">ExplainShell</a> - Справочник</li>
+                    </ul>
+                </div>
+
+                <div class="month-card">
+                    <h3>🔧 Git & Terraform</h3>
+                    <ul class="topic-list">
+                        <li>🔗 <a href="https://skills.github.com/" style="color: #27ae60;">GitHub Skills</a> - Официално</li>
+                        <li>🔗 <a href="https://learngitbranching.js.org/" style="color: #27ae60;">Learn Git Branching</a> - Визуално</li>
+                        <li>🔗 <a href="https://developer.hashicorp.com/terraform/tutorials" style="color: #27ae60;">HashiCorp Tutorials</a></li>
+                        <li>🔗 <a href="https://registry.terraform.io/" style="color: #27ae60;">Terraform Registry</a></li>
+                    </ul>
+                </div>
+
+                <div class="month-card">
+                    <h3>🤖 AI & ML</h3>
+                    <ul class="topic-list">
+                        <li>🔗 <a href="https://www.deeplearning.ai/" style="color: #9b59b6;">DeepLearning.AI</a> - Coursera</li>
+                        <li>🔗 <a href="https://www.fast.ai/" style="color: #9b59b6;">fast.ai</a> - Практически ML</li>
+                        <li>🔗 <a href="https://www.promptingguide.ai/" style="color: #9b59b6;">Prompt Engineering Guide</a></li>
+                        <li>🔗 <a href="https://platform.openai.com/docs" style="color: #9b59b6;">OpenAI Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin: 30px 0 20px;">🎧 Препоръчани подкасти (за петък)</h3>
+            <div class="podcast-grid">
+                <div class="podcast-card">
+                    <div class="podcast-icon">🔐</div>
+                    <div class="podcast-info">
+                        <h4>Darknet Diaries</h4>
+                        <p>Истории за хакове и киберсигурност</p>
+                    </div>
+                </div>
+                <div class="podcast-card">
+                    <div class="podcast-icon">☁️</div>
+                    <div class="podcast-info">
+                        <h4>Azure Friday</h4>
+                        <p>Официален подкаст на Microsoft Azure</p>
+                    </div>
+                </div>
+                <div class="podcast-card">
+                    <div class="podcast-icon">🤖</div>
+                    <div class="podcast-info">
+                        <h4>Lex Fridman Podcast</h4>
+                        <p>AI, технологии и философия</p>
+                    </div>
+                </div>
+                <div class="podcast-card">
+                    <div class="podcast-icon">🛡️</div>
+                    <div class="podcast-info">
+                        <h4>CISO Series Podcast</h4>
+                        <p>Security leadership insights</p>
+                    </div>
+                </div>
+                <div class="podcast-card">
+                    <div class="podcast-icon">💻</div>
+                    <div class="podcast-info">
+                        <h4>Syntax.fm</h4>
+                        <p>Web development и DevOps</p>
+                    </div>
+                </div>
+                <div class="podcast-card">
+                    <div class="podcast-icon">🎯</div>
+                    <div class="podcast-info">
+                        <h4>Security Now</h4>
+                        <p>Седмични новини за сигурност</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Tracker Section -->
+        <section id="tracker" class="section">
+            <h2 style="margin-bottom: 20px;">✅ Проследяване на прогреса</h2>
+            
+            <div class="tracker-section">
+                <h3>🏆 Сертификати (Кликни за да маркираш)</h3>
+                <div class="cert-tracker">
+                    <div class="cert-item" onclick="toggleCert(this, 'az900')" id="cert-az900">
+                        <div class="cert-checkbox">✓</div>
+                        <div class="cert-info">
+                            <h4>AZ-900</h4>
+                            <p>Azure Fundamentals</p>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="toggleCert(this, 'ai900')" id="cert-ai900">
+                        <div class="cert-checkbox">✓</div>
+                        <div class="cert-info">
+                            <h4>AI-900</h4>
+                            <p>Azure AI Fundamentals</p>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="toggleCert(this, 'github')" id="cert-github">
+                        <div class="cert-checkbox">✓</div>
+                        <div class="cert-info">
+                            <h4>GitHub Foundations</h4>
+                            <p>Git & GitHub</p>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="toggleCert(this, 'sc900')" id="cert-sc900">
+                        <div class="cert-checkbox">✓</div>
+                        <div class="cert-info">
+                            <h4>SC-900</h4>
+                            <p>Security Fundamentals</p>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="toggleCert(this, 'sc300')" id="cert-sc300">
+                        <div class="cert-checkbox">✓</div>
+                        <div class="cert-info">
+                            <h4>SC-300</h4>
+                            <p>Identity & Access Admin ⭐</p>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="toggleCert(this, 'awsccp')" id="cert-awsccp">
+                        <div class="cert-checkbox">✓</div>
+                        <div class="cert-info">
+                            <h4>AWS CCP</h4>
+                            <p>Cloud Practitioner</p>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="toggleCert(this, 'az500')" id="cert-az500">>
+                        <div class="cert-checkbox">✓</div>
+                        <div class="cert-info">
+                            <h4>AZ-500</h4>
+                            <p>Azure Security Engineer</p>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="toggleCert(this, 'terraform')" id="cert-terraform">
+                        <div class="cert-checkbox">✓</div>
+                        <div class="cert-info">
+                            <h4>Terraform Associate</h4>
+                            <p>HashiCorp Certified</p>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="toggleCert(this, 'awssaa')" id="cert-awssaa">
+                        <div class="cert-checkbox">✓</div>
+                        <div class="cert-info">
+                            <h4>AWS SAA</h4>
+                            <p>Solutions Architect</p>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="toggleCert(this, 'awssec')" id="cert-awssec">
+                        <div class="cert-checkbox">✓</div>
+                        <div class="cert-info">
+                            <h4>AWS Security</h4>
+                            <p>Security Specialty ⭐</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tracker-section">
+                <h3>📅 Тази седмица (Кликни на деня след като завършиш)</h3>
+                <div class="week-tracker">
+                    <div class="week-day" onclick="toggleDay(this, 'mon')">
+                        <div class="day-name">ПОН</div>
+                        <div class="hours">1ч</div>
+                        <div>Azure/AI</div>
+                    </div>
+                    <div class="week-day" onclick="toggleDay(this, 'tue')">
+                        <div class="day-name">ВТО</div>
+                        <div class="hours">1ч</div>
+                        <div>Azure/AI</div>
+                    </div>
+                    <div class="week-day" onclick="toggleDay(this, 'wed')">
+                        <div class="day-name">СРЯ</div>
+                        <div class="hours">1ч</div>
+                        <div>AWS</div>
+                    </div>
+                    <div class="week-day" onclick="toggleDay(this, 'thu')">
+                        <div class="day-name">ЧЕТ</div>
+                        <div class="hours">1ч</div>
+                        <div>AWS</div>
+                    </div>
+                    <div class="week-day" onclick="toggleDay(this, 'fri')">
+                        <div class="day-name">ПЕТ</div>
+                        <div class="hours">1ч</div>
+                        <div>Подкаст</div>
+                    </div>
+                    <div class="week-day" onclick="toggleDay(this, 'sat')">
+                        <div class="day-name">СЪБ</div>
+                        <div class="hours">5ч</div>
+                        <div>Azure+AI+AWS</div>
+                    </div>
+                    <div class="week-day" onclick="toggleDay(this, 'sun')">
+                        <div class="day-name">НЕД</div>
+                        <div class="hours">5ч</div>
+                        <div>Практика</div>
+                    </div>
+                </div>
+                <button onclick="resetWeek()" style="margin-top: 15px; padding: 10px 20px; background: #e74c3c; border: none; border-radius: 5px; color: #fff; cursor: pointer;">🔄 Нулирай седмицата</button>
+            </div>
+
+            <div class="tracker-section">
+                <h3>📊 Общ прогрес</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div>
+                        <label>Общо часове учене:</label>
+                        <input type="number" id="totalHoursInput" value="0" min="0" style="width: 80px; padding: 8px; border-radius: 5px; border: none; margin-left: 10px;" onchange="updateTotalHours()">
+                    </div>
+                    <div>
+                        <label>Текущ месец:</label>
+                        <select id="currentMonth" style="padding: 8px; border-radius: 5px; border: none; margin-left: 10px;">
+                            <option value="1">Месец 1 (Февруари 2026)</option>
+                            <option value="2">Месец 2 (Март 2026)</option>
+                            <option value="3">Месец 3 (Април 2026)</option>
+                            <option value="4">Месец 4 (Май 2026)</option>
+                            <option value="5">Месец 5 (Юни 2026)</option>
+                            <option value="6">Месец 6 (Юли 2026)</option>
+                            <option value="7">Месец 7 (Август 2026)</option>
+                            <option value="8">Месец 8 (Септември 2026)</option>
+                            <option value="9">Месец 9 (Октомври 2026)</option>
+                            <option value="10">Месец 10 (Ноември 2026)</option>
+                            <option value="11">Месец 11 (Декември 2026)</option>
+                            <option value="12">Месец 12 (Януари 2027)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notes Section -->
+        <!-- Diary/Log Section -->
+        <section id="diary" class="section">
+            <h2 style="margin-bottom: 20px;">📓 Дневник на обучението</h2>
+            
+            <!-- Stats Overview -->
+            <div class="diary-stats">
+                <div class="diary-stat-card">
+                    <div class="value" id="diaryTotalHours">0</div>
+                    <div class="label">Общо часове</div>
+                </div>
+                <div class="diary-stat-card">
+                    <div class="value" id="diaryTotalEntries">0</div>
+                    <div class="label">Записи</div>
+                </div>
+                <div class="diary-stat-card">
+                    <div class="value" id="diaryThisWeek">0</div>
+                    <div class="label">Тази седмица (ч)</div>
+                </div>
+                <div class="diary-stat-card">
+                    <div class="value" id="diaryAvgPerDay">0</div>
+                    <div class="label">Средно/ден (ч)</div>
+                </div>
+            </div>
+
+            <!-- Add Entry Form -->
+            <div class="tracker-section">
+                <h3>➕ Добави запис</h3>
+                <div class="diary-form">
+                    <div>
+                        <label for="diaryDate">📅 Дата</label>
+                        <input type="date" id="diaryDate">
+                    </div>
+                    <div>
+                        <label for="diaryCourse">📚 Курс / Тема</label>
+                        <input type="text" id="diaryCourse" placeholder="напр. AZ-900 - Module 3">
+                    </div>
+                    <div>
+                        <label for="diaryCategory">📂 Категория</label>
+                        <select id="diaryCategory">
+                            <option value="azure">☁️ Azure</option>
+                            <option value="aws">🔶 AWS</option>
+                            <option value="ai">🤖 AI</option>
+                            <option value="git">🔧 Git/GitHub</option>
+                            <option value="terraform">🔧 Terraform</option>
+                            <option value="linux">🐧 Linux</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="diaryHours">⏱️ Време (мин)</label>
+                        <input type="number" id="diaryHours" placeholder="60" min="1" max="480">
+                    </div>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="diaryNotes" style="display: block; margin-bottom: 5px; color: var(--accent); font-size: 0.9em;">📝 Бележки (незадължително)</label>
+                    <input type="text" id="diaryNotes" style="width: 100%; padding: 10px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(0,0,0,0.3); color: #fff;" placeholder="Какво научи? Въпроси?">
+                </div>
+                <button class="diary-add-btn" onclick="addDiaryEntry()">➕ Добави запис</button>
+            </div>
+
+            <!-- Entries Table -->
+            <div class="tracker-section">
+                <h3>📋 История на записите</h3>
+                <div style="overflow-x: auto;">
+                    <table class="diary-table">
+                        <thead>
+                            <tr>
+                                <th>📅 Дата</th>
+                                <th>📂 Категория</th>
+                                <th>📚 Курс / Тема</th>
+                                <th>⏱️ Време</th>
+                                <th>📝 Бележки</th>
+                                <th>🗑️</th>
+                            </tr>
+                        </thead>
+                        <tbody id="diaryEntries">
+                            <!-- Entries will be added here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                <p id="noDiaryEntries" style="text-align: center; padding: 30px; opacity: 0.6;">Няма записи. Добави първия си запис! 🚀</p>
+            </div>
+
+            <!-- Export/Import Section -->
+            <div class="tracker-section">
+                <h3>📦 Backup & Възстановяване</h3>
+                <p style="margin-bottom: 15px; opacity: 0.8;">Запази данните си или ги прехвърли на друг компютър/браузър.</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <button onclick="exportAllData()" class="diary-add-btn" style="background: linear-gradient(135deg, #27ae60, #2ecc71);">
+                        📤 Export (изтегли JSON)
+                    </button>
+                    <label class="diary-add-btn" style="background: linear-gradient(135deg, #3498db, #2980b9); cursor: pointer;">
+                        📥 Import (качи JSON)
+                        <input type="file" id="importFile" accept=".json" onchange="importAllData(event)" style="display: none;">
+                    </label>
+                    <button onclick="clearAllData()" class="diary-add-btn" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                        🗑️ Изчисти всичко
+                    </button>
+                </div>
+                <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.6;">ℹ️ Export включва: дневник, сертификати, бележки, цели</p>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Съвет</h4>
+                <p>Записвай всяка сесия на учене! Така ще виждаш напредъка си и ще знаеш къде да фокусираш усилията. Целта е ~15 часа седмично. 💾 Прави backup седмично!</p>
+            </div>
+        </section>
+
+        <section id="notes" class="section">
+            <h2 style="margin-bottom: 20px;">📝 Бележки & Планиране</h2>
+            
+            <div class="tracker-section">
+                <h3>📌 Седмични бележки</h3>
+                <textarea class="notes-area" id="weeklyNotes" placeholder="Запиши какво научи тази седмица, въпроси, идеи за проекти..."></textarea>
+                <button onclick="saveNotes()" style="margin-top: 15px; padding: 10px 20px; background: var(--primary); border: none; border-radius: 5px; color: #fff; cursor: pointer;">💾 Запази бележките</button>
+            </div>
+
+            <div class="tracker-section">
+                <h3>🎯 Цели за този месец</h3>
+                <textarea class="notes-area" id="monthlyGoals" placeholder="Какви са целите ти за този месец? Кой сертификат подготвяш?"></textarea>
+            </div>
+
+            <div class="tip-box">
+                <h4>💡 Съвет за ремонта</h4>
+                <p>Когато започне ремонтът, можем да адаптираме плана - например да намалим до 10 часа седмично временно или да фокусираме само върху един предмет. Просто ми кажи! 🏠</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🚀 PAM Expert Training Program | Създаден: Февруари 2026</p>
+            <p>💪 "Consistency beats intensity. Keep going!"</p>
+        </footer>
+    </div>
+
+    <script>
+        // Data persistence
+        function loadData() {
+            const data = JSON.parse(localStorage.getItem('pamTrainingData') || '{}');
+            
+            // Load certs
+            Object.keys(data.certs || {}).forEach(cert => {
+                if (data.certs[cert]) {
+                    document.getElementById(`cert-${cert}`)?.classList.add('completed');
+                }
+            });
+            
+            // Load week
+            Object.keys(data.week || {}).forEach(day => {
+                if (data.week[day]) {
+                    document.querySelectorAll('.week-day').forEach(el => {
+                        if (el.getAttribute('onclick')?.includes(day)) {
+                            el.classList.add('done');
+                        }
+                    });
+                }
+            });
+            
+            // Load notes
+            if (data.weeklyNotes) document.getElementById('weeklyNotes').value = data.weeklyNotes;
+            if (data.monthlyGoals) document.getElementById('monthlyGoals').value = data.monthlyGoals;
+            if (data.totalHours) {
+                document.getElementById('totalHoursInput').value = data.totalHours;
+                document.getElementById('totalHours').textContent = data.totalHours;
+            }
+            if (data.currentMonth) document.getElementById('currentMonth').value = data.currentMonth;
+            
+            updateStats();
+        }
+
+        function saveData() {
+            const data = {
+                certs: {},
+                week: {},
+                weeklyNotes: document.getElementById('weeklyNotes').value,
+                monthlyGoals: document.getElementById('monthlyGoals').value,
+                totalHours: document.getElementById('totalHoursInput').value,
+                currentMonth: document.getElementById('currentMonth').value
+            };
+            
+            document.querySelectorAll('.cert-item').forEach(el => {
+                const certId = el.id.replace('cert-', '');
+                data.certs[certId] = el.classList.contains('completed');
+            });
+            
+            document.querySelectorAll('.week-day').forEach(el => {
+                const match = el.getAttribute('onclick')?.match(/'(\w+)'/);
+                if (match) {
+                    data.week[match[1]] = el.classList.contains('done');
+                }
+            });
+            
+            localStorage.setItem('pamTrainingData', JSON.stringify(data));
+        }
+
+        function toggleCert(element, certId) {
+            element.classList.toggle('completed');
+            updateStats();
+            saveData();
+        }
+
+        function toggleDay(element, day) {
+            element.classList.toggle('done');
+            saveData();
+        }
+
+        function resetWeek() {
+            document.querySelectorAll('.week-day').forEach(el => {
+                el.classList.remove('done');
+            });
+            saveData();
+        }
+
+        function updateStats() {
+            const completed = document.querySelectorAll('.cert-item.completed').length;
+            document.getElementById('completedCerts').textContent = completed;
+        }
+
+        function updateTotalHours() {
+            const hours = document.getElementById('totalHoursInput').value;
+            document.getElementById('totalHours').textContent = hours;
+            saveData();
+        }
+
+        function saveNotes() {
+            saveData();
+            alert('Бележките са запазени! 💾');
+        }
+
+        // ========== DIARY FUNCTIONS ==========
+        function getDiaryEntries() {
+            return JSON.parse(localStorage.getItem('diaryEntries') || '[]');
+        }
+
+        function saveDiaryEntries(entries) {
+            localStorage.setItem('diaryEntries', JSON.stringify(entries));
+        }
+
+        function addDiaryEntry() {
+            const date = document.getElementById('diaryDate').value;
+            const course = document.getElementById('diaryCourse').value.trim();
+            const category = document.getElementById('diaryCategory').value;
+            const minutes = parseInt(document.getElementById('diaryHours').value);
+            const notes = document.getElementById('diaryNotes').value.trim();
+
+            if (!date || !course || !minutes) {
+                alert('Моля, попълни дата, курс и време!');
+                return;
+            }
+
+            const entry = {
+                id: Date.now(),
+                date,
+                course,
+                category,
+                minutes,
+                notes
+            };
+
+            const entries = getDiaryEntries();
+            entries.unshift(entry); // Add to beginning
+            saveDiaryEntries(entries);
+
+            // Clear form
+            document.getElementById('diaryCourse').value = '';
+            document.getElementById('diaryHours').value = '';
+            document.getElementById('diaryNotes').value = '';
+
+            // Update display
+            renderDiaryEntries();
+            updateDiaryStats();
+
+            // Also update total hours in header
+            updateTotalHoursFromDiary();
+        }
+
+        function deleteDiaryEntry(id) {
+            if (!confirm('Сигурен ли си, че искаш да изтриеш този запис?')) return;
+            
+            const entries = getDiaryEntries().filter(e => e.id !== id);
+            saveDiaryEntries(entries);
+            renderDiaryEntries();
+            updateDiaryStats();
+            updateTotalHoursFromDiary();
+        }
+
+        function renderDiaryEntries() {
+            const entries = getDiaryEntries();
+            const tbody = document.getElementById('diaryEntries');
+            const noEntriesMsg = document.getElementById('noDiaryEntries');
+
+            if (entries.length === 0) {
+                tbody.innerHTML = '';
+                noEntriesMsg.style.display = 'block';
+                return;
+            }
+
+            noEntriesMsg.style.display = 'none';
+            
+            const categoryLabels = {
+                azure: '☁️ Azure',
+                aws: '🔶 AWS',
+                ai: '🤖 AI',
+                git: '🔧 Git',
+                terraform: '🔧 Terraform',
+                linux: '🐧 Linux'
+            };
+
+            tbody.innerHTML = entries.map(entry => {
+                const hours = Math.floor(entry.minutes / 60);
+                const mins = entry.minutes % 60;
+                const timeStr = hours > 0 ? `${hours}ч ${mins}м` : `${mins}м`;
+                
+                return `
+                    <tr>
+                        <td>${formatDate(entry.date)}</td>
+                        <td class="category-${entry.category}">${categoryLabels[entry.category] || entry.category}</td>
+                        <td>${entry.course}</td>
+                        <td>${timeStr}</td>
+                        <td>${entry.notes || '-'}</td>
+                        <td><button class="diary-delete-btn" onclick="deleteDiaryEntry(${entry.id})">🗑️</button></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            return `${day}.${month}.${date.getFullYear()}`;
+        }
+
+        function updateDiaryStats() {
+            const entries = getDiaryEntries();
+            const totalMinutes = entries.reduce((sum, e) => sum + e.minutes, 0);
+            const totalHours = (totalMinutes / 60).toFixed(1);
+
+            // This week's entries
+            const now = new Date();
+            const weekStart = new Date(now);
+            weekStart.setDate(now.getDate() - now.getDay()); // Sunday
+            weekStart.setHours(0, 0, 0, 0);
+
+            const weekMinutes = entries
+                .filter(e => new Date(e.date) >= weekStart)
+                .reduce((sum, e) => sum + e.minutes, 0);
+            const weekHours = (weekMinutes / 60).toFixed(1);
+
+            // Average per day (unique days)
+            const uniqueDays = new Set(entries.map(e => e.date)).size;
+            const avgPerDay = uniqueDays > 0 ? (totalMinutes / 60 / uniqueDays).toFixed(1) : '0';
+
+            document.getElementById('diaryTotalHours').textContent = totalHours;
+            document.getElementById('diaryTotalEntries').textContent = entries.length;
+            document.getElementById('diaryThisWeek').textContent = weekHours;
+            document.getElementById('diaryAvgPerDay').textContent = avgPerDay;
+        }
+
+        function updateTotalHoursFromDiary() {
+            const entries = getDiaryEntries();
+            const totalMinutes = entries.reduce((sum, e) => sum + e.minutes, 0);
+            const totalHours = Math.round(totalMinutes / 60);
+            document.getElementById('totalHours').textContent = totalHours;
+            document.getElementById('totalHoursInput').value = totalHours;
+            saveData();
+        }
+
+        // Set today's date as default
+        function initDiaryForm() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('diaryDate').value = today;
+        }
+
+        // ========== EXPORT / IMPORT ==========
+        function exportAllData() {
+            const exportData = {
+                version: '1.0',
+                exportDate: new Date().toISOString(),
+                diaryEntries: getDiaryEntries(),
+                pamTrainingData: JSON.parse(localStorage.getItem('pamTrainingData') || '{}')
+            };
+
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            const date = new Date().toISOString().split('T')[0];
+            const filename = `training-backup-${date}.json`;
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            alert(`✅ Данните са експортирани!\n\nФайл: ${filename}\nЗаписи в дневника: ${exportData.diaryEntries.length}`);
+        }
+
+        function importAllData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importData = JSON.parse(e.target.result);
+                    
+                    // Validate structure
+                    if (!importData.diaryEntries && !importData.pamTrainingData) {
+                        throw new Error('Невалиден формат на файла');
+                    }
+
+                    const diaryCount = importData.diaryEntries?.length || 0;
+                    const confirmMsg = `Намерени данни:\n- Записи в дневника: ${diaryCount}\n- Бележки и настройки: ${importData.pamTrainingData ? 'Да' : 'Не'}\n\nИскаш ли да заместиш текущите данни?`;
+                    
+                    if (!confirm(confirmMsg)) {
+                        event.target.value = '';
+                        return;
+                    }
+
+                    // Import diary entries
+                    if (importData.diaryEntries) {
+                        saveDiaryEntries(importData.diaryEntries);
+                    }
+
+                    // Import other settings
+                    if (importData.pamTrainingData) {
+                        localStorage.setItem('pamTrainingData', JSON.stringify(importData.pamTrainingData));
+                    }
+
+                    // Refresh UI
+                    loadData();
+                    renderDiaryEntries();
+                    updateDiaryStats();
+                    updateTotalHoursFromDiary();
+
+                    alert(`✅ Импортирането е успешно!\n\nЗаписи: ${diaryCount}`);
+                } catch (err) {
+                    alert(`❌ Грешка при импортиране:\n${err.message}`);
+                }
+                
+                event.target.value = ''; // Reset file input
+            };
+            reader.readAsText(file);
+        }
+
+        function clearAllData() {
+            const entries = getDiaryEntries();
+            if (!confirm(`⚠️ ВНИМАНИЕ!\n\nЩе изтриеш ВСИЧКИ данни:\n- ${entries.length} записи в дневника\n- Бележки и цели\n- Прогрес по сертификати\n\nТова е необратимо! Продължаваш ли?`)) {
+                return;
+            }
+
+            if (!confirm('🔴 Последно потвърждение: Сигурен ли си?')) {
+                return;
+            }
+
+            localStorage.removeItem('diaryEntries');
+            localStorage.removeItem('pamTrainingData');
+
+            // Refresh UI
+            loadData();
+            renderDiaryEntries();
+            updateDiaryStats();
+            document.getElementById('totalHours').textContent = '0';
+            
+            // Reset cert checkboxes
+            document.querySelectorAll('.cert-item').forEach(el => {
+                el.classList.remove('completed');
+            });
+
+            alert('🗑️ Всички данни са изтрити.');
+        }
+
+        function showSection(sectionId, clickedElement) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            
+            document.getElementById(sectionId).classList.add('active');
+            if (clickedElement) {
+                clickedElement.classList.add('active');
+            }
+        }
+
+        // Auto-save notes
+        document.getElementById('weeklyNotes')?.addEventListener('input', saveData);
+        document.getElementById('monthlyGoals')?.addEventListener('input', saveData);
+        document.getElementById('currentMonth')?.addEventListener('change', saveData);
+
+        // Load on start
+        document.addEventListener('DOMContentLoaded', function() {
+            loadData();
+            initDiaryForm();
+            renderDiaryEntries();
+            updateDiaryStats();
+        });
+    </script>
+</body>
+</html>
