@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f4ec">
+  <meta name="description" content="Документация за проекта Smart Lighting: схема, материали и списък за пазаруване.">
+  <title>Smart Lighting | Начало</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f3f4ec;
+      --ink: #202923;
+      --muted: #59645d;
+      --line: #c9d0c8;
+      --green: #275e48;
+      --green-soft: #e2ebe2;
+      --orange: #a34d22;
+      --white: #fffef9;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.55 "Segoe UI", Tahoma, sans-serif;
+    }
+
+    main {
+      width: min(880px, calc(100% - 36px));
+      margin: 48px auto 72px;
+    }
+
+    header {
+      padding: 24px 0 25px;
+      border-top: 7px solid var(--green);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+    h1 { max-width: 650px; margin: 0; font-size: 48px; line-height: 1.06; }
+    .intro { max-width: 620px; margin: 13px 0 0; color: var(--muted); }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 18px;
+      margin: 31px 0 10px;
+    }
+    .section-heading h2 { margin: 0; font-size: 25px; }
+    .section-heading p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .documents { border-top: 1px solid var(--line); }
+    .document {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) 28px;
+      align-items: center;
+      gap: 16px;
+      padding: 17px 4px;
+      border-bottom: 1px solid var(--line);
+      color: inherit;
+      text-decoration: none;
+    }
+    .document:hover .document-title { color: var(--orange); }
+    .document:hover .arrow { transform: translateX(3px); color: var(--orange); }
+    .document:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+
+    .number {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      aspect-ratio: 1;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 750;
+    }
+    .document-title { margin: 0; font-size: 21px; line-height: 1.25; transition: color .15s ease; }
+    .document-description { margin: 5px 0 0; color: var(--muted); font-size: 14px; }
+    .arrow { color: var(--green); font-size: 23px; transition: transform .15s ease, color .15s ease; }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 560px) {
+      main { width: min(100% - 26px, 880px); margin-top: 25px; }
+      h1 { font-size: 38px; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 4px; }
+      .document { grid-template-columns: 38px minmax(0, 1fr) 20px; gap: 11px; padding: 15px 0; }
+      .number { width: 34px; }
+      .document-title { font-size: 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Проектна документация</p>
+      <h1>Smart Lighting</h1>
+      <p class="intro">Схеми, компоненти и покупки за проекта. Избери документ, за да отвориш подробностите.</p>
+    </header>
+
+    <section aria-labelledby="documents-heading">
+      <div class="section-heading">
+        <h2 id="documents-heading">Документи</h2>
+        <p>3 HTML файла</p>
+      </div>
+
+      <nav class="documents" aria-label="Документи по проекта">
+        <a class="document" href="Smart-Lighting-Tools.html">
+          <span class="number" aria-hidden="true">01</span>
+          <span>
+            <h3 class="document-title">Списък за пазаруване</h3>
+            <p class="document-description">Инструменти, електроматериали и Legrand Valena Life по магазини.</p>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="document" href="Smart-Lighting-Electrical-Schematic.html">
+          <span class="number" aria-hidden="true">02</span>
+          <span>
+            <h3 class="document-title">Електрическа схема</h3>
+            <p class="document-description">Схеми на свързване и пояснения за конфигурацията.</p>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="document" href="Smart-Lighting-Schemes-and-BOM.html">
+          <span class="number" aria-hidden="true">03</span>
+          <span>
+            <h3 class="document-title">Схеми и списък с компоненти</h3>
+            <p class="document-description">Проектни варианти, компоненти и обобщена спецификация.</p>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+
+      </nav>
+    </section>
+
+    <footer>Smart Lighting · локална документация на проекта</footer>
+  </main>
+</body>
+</html>
