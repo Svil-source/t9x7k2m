@@ -8,6 +8,8 @@
   :root { color-scheme: light; }
   body { margin: 0; background: #e9eeed; font-family: Arial, Helvetica, sans-serif; color: #1c2928; }
   .bar { max-width: 1485px; margin: 14px auto 0; padding: 0 8px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+  .bar-home { display: inline-block; padding: 7px 10px; border: 1px solid #1c2928; background: #fff; color: #1c2928; text-decoration: none; white-space: nowrap; }
+  .bar-home:hover { background: #e3ebe9; }
   .bar button { font: inherit; padding: 6px 14px; border: 1px solid #1c2928; background: #fff; cursor: pointer; }
   .sheet { width: 1485px; max-width: 100%; margin: 14px auto; background: #fff; border: 1px solid #b9c4c2; box-sizing: border-box; }
   .sheet svg { display: block; width: 100%; height: auto; }
@@ -44,6 +46,16 @@
   .wn { font: bold 11px Consolas, "Courier New", monospace; paint-order: stroke; stroke: #fff; stroke-width: 4px; stroke-linejoin: round; }
   .wl { fill: #a3301f; } .wnn { fill: #1d4f91; } .wp { fill: #2f7d32; } .wc { fill: #6a3fa0; }
 
+  @media (max-width: 760px) {
+    .bar { width: 100%; box-sizing: border-box; flex-wrap: wrap; gap: 8px 10px; padding: 10px 12px; }
+    .bar span { flex: 1 1 100%; }
+    .bar-home, .bar button { min-height: 40px; }
+    .sheet { margin: 8px auto; overflow-x: auto; }
+    .sheet > svg { width: 900px; max-width: none; }
+    .sheet.text { padding: 20px 16px; }
+    .grid2 { grid-template-columns: 1fr; gap: 12px; }
+  }
+
   @media print {
     @page { size: A3 landscape; margin: 0; }
     body { background: #fff; }
@@ -55,7 +67,7 @@
 </style>
 </head>
 <body>
-<div class="bar"><span>Лист 1 и 2: клемни схеми по линии · Лист 3: спецификация, кабелен журнал, списък на проводниците</span><button type="button" onclick="window.print()">Печат / Save PDF (A3)</button></div>
+<div class="bar"><span>Лист 1 и 2: клемни схеми по линии · Лист 3: спецификация, кабелен журнал, списък на проводниците</span><a class="bar-home" href="index.html">← Начало</a><button type="button" onclick="window.print()">Печат / Save PDF (A3)</button></div>
 
 <!-- ================= ЛИСТ 1 · LINE 1 ================= -->
 <section class="sheet" id="sheet1">

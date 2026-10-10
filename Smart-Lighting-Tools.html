@@ -33,6 +33,9 @@
       margin: 42px auto 64px;
     }
 
+    .page-nav { margin-bottom: 12px; }
+    .page-nav a { color: var(--green); font-size: 14px; font-weight: 700; text-underline-offset: 3px; }
+
     header {
       border-top: 7px solid var(--green);
       padding: 27px 0 20px;
@@ -84,6 +87,7 @@
       padding: 18px 20px;
       background: var(--white);
       border: 1px solid var(--line);
+      overflow-x: auto;
     }
     .overview h2 { font-size: 21px; margin-bottom: 10px; }
     .overview table { width: 100%; border-collapse: collapse; font-size: 15px; }
@@ -172,6 +176,7 @@
       .item { grid-template-columns: 25px minmax(0, 1fr); gap: 10px; }
       .price { grid-column: 2; padding-top: 0; text-align: left; }
       .overview { padding: 14px; }
+      .overview table { min-width: 620px; }
     }
 
     @media print {
@@ -188,6 +193,7 @@
 </head>
 <body>
   <main>
+    <nav class="page-nav" aria-label="Навигация"><a href="index.html">← Към началната страница</a></nav>
     <header>
       <p class="eyebrow">Smart Lighting · списък за пазаруване</p>
       <h1>Какво да купя и откъде</h1>
