@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Lighting · Електрическа схема на свързване (лист 1–3)</title>
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; background: #e9eeed; font-family: Arial, Helvetica, sans-serif; color: #1c2928; }
+  .bar { max-width: 1485px; margin: 14px auto 0; padding: 0 8px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+  .bar button { font: inherit; padding: 6px 14px; border: 1px solid #1c2928; background: #fff; cursor: pointer; }
+  .sheet { width: 1485px; max-width: 100%; margin: 14px auto; background: #fff; border: 1px solid #b9c4c2; box-sizing: border-box; }
+  .sheet svg { display: block; width: 100%; height: auto; }
+  .sheet.text { padding: 28px 34px 34px; }
+  .sheet.text h1 { font-size: 20px; margin: 0 0 4px; }
+  .sheet.text h2 { font-size: 15px; margin: 24px 0 8px; border-bottom: 2px solid #1c2928; padding-bottom: 4px; }
+  .sheet.text p, .sheet.text li { font-size: 13px; line-height: 1.5; }
+  table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+  th, td { border: 1px solid #6d7c7a; padding: 4px 7px; text-align: left; vertical-align: top; }
+  th { background: #e3ebe9; }
+  td.m { font-family: Consolas, "Courier New", monospace; font-weight: bold; white-space: nowrap; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+
+  /* SVG */
+  .fr { fill: none; stroke: #1c2928; stroke-width: 1.4; }
+  .bx { fill: #fff; stroke: #1c2928; stroke-width: 1.4; }
+  .encl { fill: #fbfdfc; stroke: #1c2928; stroke-width: 1.6; stroke-dasharray: 12 5; }
+  .dev { fill: #eaf3f1; stroke: #1c2928; stroke-width: 2; }
+  .cab { fill: none; stroke: #55635f; stroke-width: 1.4; stroke-dasharray: 5 3; }
+  .l, .n, .pe, .c, .wifi { fill: none; stroke-width: 2; }
+  .l { stroke: #a3301f; } .n { stroke: #1d4f91; } .pe { stroke: #2f7d32; stroke-dasharray: 9 3; } .c { stroke: #6a3fa0; } .wifi { stroke: #087f78; stroke-dasharray: 3 5; }
+  .bus { stroke-width: 5; }
+  .dot { fill: #1c2928; }
+  .pin { fill: #fff; stroke: #1c2928; stroke-width: 1.6; }
+  .pinx { fill: #fff; stroke: #8a8f8e; stroke-width: 1.4; }
+  .thin { fill: none; stroke: #1c2928; stroke-width: 1.4; }
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1c2928; }
+  .h1 { font-size: 18px; font-weight: bold; }
+  .t { font-size: 12px; }
+  .tb { font-size: 13px; font-weight: bold; }
+  .ts { font-size: 10.5px; fill: #4b5a58; }
+  .tl { font-size: 11px; font-weight: bold; }
+  .gr { fill: #8a8f8e; }
+  .wn { font: bold 11px Consolas, "Courier New", monospace; paint-order: stroke; stroke: #fff; stroke-width: 4px; stroke-linejoin: round; }
+  .wl { fill: #a3301f; } .wnn { fill: #1d4f91; } .wp { fill: #2f7d32; } .wc { fill: #6a3fa0; }
+
+  @media print {
+    @page { size: A3 landscape; margin: 0; }
+    body { background: #fff; }
+    .bar { display: none; }
+    .sheet { width: 420mm; margin: 0; border: 0; page-break-after: always; }
+    .sheet:not(.text) { height: 297mm; }
+    .sheet.text { padding: 12mm; page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="bar"><span>Лист 1 и 2: клемни схеми по линии · Лист 3: спецификация, кабелен журнал, списък на проводниците</span><button type="button" onclick="window.print()">Печат / Save PDF (A3)</button></div>
+
+<!-- ================= ЛИСТ 1 · LINE 1 ================= -->
+<section class="sheet" id="sheet1">
+<svg viewBox="0 0 1485 1050" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t1">
+<title id="t1">Лист 1: клемна схема на свързване на D1 и D2, LINE 1</title>
+<rect class="fr" x="10" y="10" width="1465" height="1030"/>
+<text class="h1" x="30" y="44">ЛИСТ 1 · LINE 1 · КЛЕМНА СХЕМА НА СВЪРЗВАНЕ · D1 + D2</text>
+<text class="ts" x="30" y="62">Цветовете на линиите са условни (L червено, N синьо, PE зелено прекъснато, управление лилаво) и не са цветове на изолацията на реалните проводници.</text>
+
+<!-- кутии -->
+<rect class="bx" x="30" y="75" width="150" height="150"/>
+<rect class="bx" x="200" y="75" width="130" height="150"/>
+<rect class="cab" x="345" y="100" width="105" height="100" rx="8"/>
+<rect class="encl" x="460" y="75" width="580" height="815"/>
+
+<!-- табло и конзола -->
+<text class="tb" x="40" y="92">ТАБЛО</text><text class="ts" x="40" y="105">съществуващо</text>
+<text class="tb" x="210" y="92">КОНЗОЛА</text><text class="ts" x="210" y="105">сериен ключ</text>
+<text class="t" x="36" y="119">PE</text><text class="t" x="36" y="154">N</text><text class="t" x="36" y="189">L</text>
+<path class="pe" d="M60 115H510"/>
+<path class="n" d="M60 150H1045V180H1065"/>
+<path class="l" d="M60 185H95M125 185H240M290 185H1045V200H1065"/>
+<rect class="bx" x="95" y="173" width="30" height="24"/><text class="tl" x="110" y="189" text-anchor="middle">QF1</text>
+<text class="ts" x="110" y="214" text-anchor="middle">≤16 A · B/C</text>
+<circle class="pin" cx="240" cy="185" r="3.5"/><circle class="pin" cx="290" cy="185" r="3.5"/>
+<path class="thin" d="M240 185L279 166"/>
+<text class="tl" x="265" y="205" text-anchor="middle">SA1</text><text class="ts" x="265" y="218" text-anchor="middle">MASTER 1 · съществ.</text>
+
+<!-- кабел W01 -->
+<text class="tl" x="397" y="92" text-anchor="middle">W01 · кабел 1</text>
+<text class="wn wp" x="397" y="110" text-anchor="middle">1PE</text>
+<text class="wn wnn" x="397" y="145" text-anchor="middle">1N</text>
+<text class="wn wl" x="397" y="180" text-anchor="middle">1L</text>
+<text class="ts" x="397" y="217" text-anchor="middle">3 жила: L · N · PE</text>
+<text class="ts" x="397" y="230" text-anchor="middle">съществуващ</text>
+
+<!-- J1 -->
+<text class="tb" x="640" y="98" style="font-size:14px">J1 · РАЗКЛОНИТЕЛНА КУТИЯ · LINE 1</text>
+<text class="ts" x="640" y="118">XL1: WAGO 221-415 (5) · XN1: WAGO 221-416 (6) · XP1: WAGO 221-413 (3)</text>
+<text class="ts" x="640" y="134">Кутия: достъпна; размер, IP и температура — по оглед</text>
+<text class="ts" x="640" y="150">Клеми Shelly: 0,5–4 mm² · оголване 5–6 mm · момент 0,4 Nm</text>
+
+<!-- i4 на LINE 1: бутоните са кабелни към SW; управление на димерите е по Wi-Fi -->
+<rect class="dev" x="1065" y="75" width="390" height="150"/>
+<circle class="pin" cx="1065" cy="140" r="4"/><circle class="pin" cx="1065" cy="160" r="4"/>
+<circle class="pin" cx="1065" cy="180" r="4"/><circle class="pin" cx="1065" cy="200" r="4"/><circle class="pin" cx="1065" cy="220" r="4"/>
+<text class="tb" x="1080" y="97">I4-1 · Shelly i4 Gen4 · LINE 1</text>
+<text class="ts" x="1080" y="117">S4SN-0A24X · BUTTON 1 → SW1 · BUTTON 2 → SW2</text>
+<text class="ts" x="1080" y="145">SW1</text><text class="ts" x="1080" y="165">SW2</text>
+<text class="ts" x="1080" y="185">N</text><text class="ts" x="1080" y="205">L · захранване</text><text class="ts" x="1080" y="220">L · към бутоните</text>
+<path class="c" d="M1065 140H1155V455H1190"/><path class="c" d="M1065 160H1170V785H1190"/>
+<path class="l" d="M1065 220H1180V860H1190M1180 530H1190"/><circle class="dot" cx="1180" cy="530" r="4"/>
+<text class="wn wc" x="1147" y="449" text-anchor="end">15</text><text class="wn wc" x="1162" y="779" text-anchor="end">25</text>
+<text class="wn wl" x="1100" y="215">14</text><text class="wn wl" x="1168" y="524" text-anchor="end">20</text><text class="wn wl" x="1168" y="854" text-anchor="end">24</text>
+<text class="ts" x="1185" y="544" text-anchor="end">XBC1</text>
+
+<path class="pe bus" d="M510 115V590"/>
+<path class="n bus" d="M540 150V620"/>
+<path class="l bus" d="M570 185V860"/>
+<circle class="dot" cx="510" cy="115" r="4"/><circle class="dot" cx="540" cy="150" r="4"/><circle class="dot" cx="570" cy="185" r="4"/>
+<text class="tl" x="517" y="111">XP1</text><text class="tl" x="547" y="146">XN1</text><text class="tl" x="577" y="181">XL1</text>
+
+<!-- КАНАЛ 1 -->
+<text class="tb" x="700" y="322">КАНАЛ 1 · D1 → ZONE 1 (EL1)</text>
+<path class="pe" d="M510 260H1190"/>
+<path class="n" d="M540 290H1190"/>
+<path class="n" d="M620 290V355H680"/>
+<path class="l" d="M570 385H680"/>
+<path class="l" d="M930 385H1190"/>
+<circle class="dot" cx="510" cy="260" r="4"/><circle class="dot" cx="540" cy="290" r="4"/><circle class="dot" cx="620" cy="290" r="4"/><circle class="dot" cx="570" cy="385" r="4"/>
+<text class="wn wp" x="900" y="254">17</text><text class="wn wnn" x="900" y="284">16</text>
+<text class="wn wl" x="628" y="380">11</text><text class="wn wnn" x="648" y="350">12</text>
+<text class="wn wl" x="1000" y="380">13</text>
+<rect class="dev" x="680" y="330" width="250" height="180"/>
+<circle class="pin" cx="680" cy="355" r="4"/><circle class="pin" cx="680" cy="385" r="4"/><circle class="pinx" cx="680" cy="415" r="4"/>
+<circle class="pin" cx="930" cy="385" r="4"/><circle class="pinx" cx="930" cy="415" r="4"/><circle class="pinx" cx="930" cy="455" r="4"/><circle class="pinx" cx="930" cy="485" r="4"/>
+<path class="thin" d="M930 385H946V415H930"/><text class="ts" x="950" y="404">мост</text>
+<text class="t" x="692" y="359">N</text><text class="t" x="692" y="389">L</text><text class="t gr" x="692" y="419">L —</text>
+<text class="t" x="918" y="389" text-anchor="end">O</text><text class="t gr" x="918" y="419" text-anchor="end">O —</text><text class="t gr" x="918" y="459" text-anchor="end">S1 — NC</text><text class="t gr" x="918" y="489" text-anchor="end">S2 — NC</text>
+<text class="tb" x="805" y="400" text-anchor="middle" style="font-size:20px">D1</text>
+<text class="t" x="805" y="420" text-anchor="middle">Shelly Dimmer Gen4</text>
+<text class="ts" x="805" y="436" text-anchor="middle">S4DM-0A101WWL</text>
+<text class="ts" x="805" y="452" text-anchor="middle">1 канал · LED ≤ 150 W</text>
+<!-- W11, W21, EL1, SB1 -->
+<rect class="cab" x="1065" y="245" width="80" height="155" rx="8"/><text class="tl" x="1105" y="238" text-anchor="middle">W11 · 3 жила</text>
+<rect class="cab" x="1065" y="440" width="80" height="105" rx="8"/><text class="tl" x="1105" y="433" text-anchor="middle">W21 · 2 жила</text>
+<rect class="bx" x="1190" y="245" width="265" height="155"/>
+<circle class="pin" cx="1190" cy="260" r="4"/><circle class="pin" cx="1190" cy="290" r="4"/><circle class="pin" cx="1190" cy="385" r="4"/>
+<text class="t" x="1200" y="264">PE</text><text class="t" x="1200" y="294">N</text><text class="t" x="1200" y="389">L</text>
+<text class="tb" x="1250" y="322">EL1 · ZONE 1</text><text class="ts" x="1250" y="340">L1 · VIVALUX RAIL 2M/WH</text><text class="ts" x="1250" y="356">4 × GU10 · димируеми LED</text><text class="ts" x="1250" y="372">≤ 150 W на канал</text>
+<rect class="bx" x="1190" y="440" width="265" height="105"/>
+<circle class="pin" cx="1190" cy="455" r="4"/><circle class="pin" cx="1190" cy="530" r="4"/>
+<text class="t" x="1200" y="459">2</text><text class="t" x="1200" y="534">1</text>
+<path class="c" d="M1190 455H1240V480M1190 530H1240V508"/><circle class="pin" cx="1240" cy="480" r="3"/><circle class="pin" cx="1240" cy="508" r="3"/>
+<path class="thin" d="M1240 508L1263 486"/><path class="thin" d="M1252 497H1286M1286 487V507" stroke-dasharray="3 3"/>
+<text class="tb" x="1300" y="480">SB1 · BUTTON 1</text><text class="ts" x="1300" y="498">NO · към I4-1: L / SW1</text><text class="ts" x="1300" y="514">I4-1 → D1 по Wi-Fi</text>
+
+<!-- КАНАЛ 2 -->
+<text class="tb" x="700" y="652">КАНАЛ 2 · D2 → ZONE 2 (EL2)</text>
+<path class="pe" d="M510 590H1190"/>
+<path class="n" d="M540 620H1190"/>
+<path class="n" d="M620 620V685H680"/>
+<path class="l" d="M570 715H680"/>
+<path class="l" d="M930 715H1190"/>
+<circle class="dot" cx="510" cy="590" r="4"/><circle class="dot" cx="540" cy="620" r="4"/><circle class="dot" cx="620" cy="620" r="4"/><circle class="dot" cx="570" cy="715" r="4"/>
+<text class="wn wp" x="900" y="584">27</text><text class="wn wnn" x="900" y="614">26</text>
+<text class="wn wl" x="628" y="710">21</text><text class="wn wnn" x="648" y="680">22</text>
+<text class="wn wl" x="1000" y="710">23</text>
+<rect class="dev" x="680" y="660" width="250" height="180"/>
+<circle class="pin" cx="680" cy="685" r="4"/><circle class="pin" cx="680" cy="715" r="4"/><circle class="pinx" cx="680" cy="745" r="4"/>
+<circle class="pin" cx="930" cy="715" r="4"/><circle class="pinx" cx="930" cy="745" r="4"/><circle class="pinx" cx="930" cy="785" r="4"/><circle class="pinx" cx="930" cy="815" r="4"/>
+<path class="thin" d="M930 715H946V745H930"/><text class="ts" x="950" y="734">мост</text>
+<text class="t" x="692" y="689">N</text><text class="t" x="692" y="719">L</text><text class="t gr" x="692" y="749">L —</text>
+<text class="t" x="918" y="719" text-anchor="end">O</text><text class="t gr" x="918" y="749" text-anchor="end">O —</text><text class="t gr" x="918" y="789" text-anchor="end">S1 — NC</text><text class="t gr" x="918" y="819" text-anchor="end">S2 — NC</text>
+<text class="tb" x="805" y="730" text-anchor="middle" style="font-size:20px">D2</text>
+<text class="t" x="805" y="750" text-anchor="middle">Shelly Dimmer Gen4</text>
+<text class="ts" x="805" y="766" text-anchor="middle">S4DM-0A101WWL</text>
+<text class="ts" x="805" y="782" text-anchor="middle">1 канал · LED ≤ 150 W</text>
+<rect class="cab" x="1065" y="575" width="80" height="155" rx="8"/><text class="tl" x="1105" y="568" text-anchor="middle">W12 · 3 жила</text>
+<rect class="cab" x="1065" y="770" width="80" height="105" rx="8"/><text class="tl" x="1105" y="763" text-anchor="middle">W22 · 2 жила</text>
+<rect class="bx" x="1190" y="575" width="265" height="155"/>
+<circle class="pin" cx="1190" cy="590" r="4"/><circle class="pin" cx="1190" cy="620" r="4"/><circle class="pin" cx="1190" cy="715" r="4"/>
+<text class="t" x="1200" y="594">PE</text><text class="t" x="1200" y="624">N</text><text class="t" x="1200" y="719">L</text>
+<text class="tb" x="1250" y="652">EL2 · ZONE 2</text><text class="ts" x="1250" y="670">L2 + L3 + L4</text><text class="ts" x="1250" y="686">3 × GU10 фиксирани</text><text class="ts" x="1250" y="702">≤ 150 W на канал</text>
+<rect class="bx" x="1190" y="770" width="265" height="105"/>
+<circle class="pin" cx="1190" cy="785" r="4"/><circle class="pin" cx="1190" cy="860" r="4"/>
+<text class="t" x="1200" y="789">2</text><text class="t" x="1200" y="864">1</text>
+<path class="c" d="M1190 785H1240V810M1190 860H1240V838"/><circle class="pin" cx="1240" cy="810" r="3"/><circle class="pin" cx="1240" cy="838" r="3"/>
+<path class="thin" d="M1240 838L1263 816"/><path class="thin" d="M1252 827H1286M1286 817V837" stroke-dasharray="3 3"/>
+<text class="tb" x="1300" y="810">SB2 · BUTTON 2</text><text class="ts" x="1300" y="828">NO · към I4-1: L / SW2</text><text class="ts" x="1300" y="844">I4-1 → D2 по Wi-Fi</text>
+
+<text class="ts" x="30" y="925">Принципна схема: кабелните трасета се потвърждават на място. I4-1 управлява D1/D2 по локална Wi-Fi мрежа; S1/S2 на димерите са NC. PE не минава през Shelly.</text>
+
+<!-- легенда -->
+<rect class="fr" x="10" y="950" width="880" height="90"/>
+<text class="tl" x="30" y="968">УСЛОВНИ ОЗНАЧЕНИЯ</text>
+<path class="l" d="M30 984H70"/><text class="ts" x="78" y="988">L — фаза</text>
+<path class="n" d="M170 984H210"/><text class="ts" x="218" y="988">N — нула</text>
+<path class="pe" d="M310 984H350"/><text class="ts" x="358" y="988">PE — защитен проводник</text>
+<path class="c" d="M520 984H560"/><text class="ts" x="568" y="988">бутон → i4 SW (кабелно)</text>
+<path class="wifi" d="M700 984H740"/><text class="ts" x="748" y="988">i4 → димер по Wi-Fi</text>
+<circle class="dot" cx="40" cy="1008" r="4"/><text class="ts" x="54" y="1012">свързване в клемен блок</text>
+<path class="thin" d="M240 1008H270M255 996V1020"/><text class="ts" x="278" y="1012">пресичане без връзка</text>
+<circle class="pin" cx="430" cy="1008" r="4"/><text class="ts" x="442" y="1012">клема на устройство</text>
+<circle class="pinx" cx="590" cy="1008" r="4"/><text class="ts" x="602" y="1012">неизползвана клема</text>
+<rect class="cab" x="30" y="1022" width="40" height="12" rx="4"/><text class="ts" x="78" y="1032">кабел Wxx</text>
+<text class="wn" x="170" y="1032">11</text><text class="ts" x="196" y="1032">номер на проводник (виж лист 3)</text>
+<rect class="encl" x="440" y="1021" width="40" height="14"/><text class="ts" x="488" y="1032">разклонителна кутия J</text>
+
+<!-- title block -->
+<rect class="fr" x="890" y="950" width="585" height="90"/>
+<path class="thin" d="M890 980H1475M890 1010H1475"/>
+<text class="ts" x="900" y="969">ПРОЕКТ</text><text class="tb" x="990" y="969">Smart lighting · апартамент · локално управление на осветление</text>
+<text class="ts" x="900" y="999">ЗАГЛАВИЕ</text><text class="tb" x="990" y="999">LINE 1 · клемна схема на свързване · D1 + D2</text>
+<text class="ts" x="900" y="1029">ЛИСТ</text><text class="tb" x="945" y="1029">1 от 3</text>
+<text class="ts" x="1015" y="1029">РЕВИЗИЯ</text><text class="tb" x="1070" y="1029">B · 09.10.2026</text>
+<text class="tl" x="1190" y="1029">ЗА ПРОВЕРКА · не е as-built</text>
+</svg>
+</section>
+
+<!-- ================= ЛИСТ 2 · LINE 2 ================= -->
+<section class="sheet" id="sheet2">
+<svg viewBox="0 0 1485 1050" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2">
+<title id="t2">Лист 2: клемна схема на свързване на D3 и D4, LINE 2</title>
+<rect class="fr" x="10" y="10" width="1465" height="1030"/>
+<text class="h1" x="30" y="44">ЛИСТ 2 · LINE 2 · КЛЕМНА СХЕМА НА СВЪРЗВАНЕ · D3 + D4</text>
+<text class="ts" x="30" y="62">Цветовете на линиите са условни (L червено, N синьо, PE зелено прекъснато, управление лилаво) и не са цветове на изолацията на реалните проводници.</text>
+
+<rect class="bx" x="30" y="75" width="150" height="150"/>
+<rect class="bx" x="200" y="75" width="130" height="150"/>
+<rect class="cab" x="345" y="100" width="105" height="100" rx="8"/>
+<rect class="encl" x="460" y="75" width="580" height="815"/>
+
+<text class="tb" x="40" y="92">ТАБЛО</text><text class="ts" x="40" y="105">съществуващо</text>
+<text class="tb" x="210" y="92">КОНЗОЛА</text><text class="ts" x="210" y="105">сериен ключ</text>
+<text class="t" x="36" y="119">PE</text><text class="t" x="36" y="154">N</text><text class="t" x="36" y="189">L</text>
+<path class="pe" d="M60 115H510"/>
+<path class="n" d="M60 150H1045V180H1065"/>
+<path class="l" d="M60 185H95M125 185H240M290 185H1045V200H1065"/>
+<rect class="bx" x="95" y="173" width="30" height="24"/><text class="tl" x="110" y="189" text-anchor="middle">QF2</text>
+<text class="ts" x="110" y="214" text-anchor="middle">≤16 A · B/C</text>
+<circle class="pin" cx="240" cy="185" r="3.5"/><circle class="pin" cx="290" cy="185" r="3.5"/>
+<path class="thin" d="M240 185L279 166"/>
+<text class="tl" x="265" y="205" text-anchor="middle">SA2</text><text class="ts" x="265" y="218" text-anchor="middle">MASTER 2 · съществ.</text>
+
+<text class="tl" x="397" y="92" text-anchor="middle">W02 · кабел 2</text>
+<text class="wn wp" x="397" y="110" text-anchor="middle">2PE</text>
+<text class="wn wnn" x="397" y="145" text-anchor="middle">2N</text>
+<text class="wn wl" x="397" y="180" text-anchor="middle">2L</text>
+<text class="ts" x="397" y="217" text-anchor="middle">3 жила: L · N · PE</text>
+<text class="ts" x="397" y="230" text-anchor="middle">съществуващ</text>
+
+<text class="tb" x="640" y="98" style="font-size:14px">J2 · РАЗКЛОНИТЕЛНА КУТИЯ · LINE 2</text>
+<text class="ts" x="640" y="118">XL2: WAGO 221-415 (5) · XN2: WAGO 221-416 (6) · XP2: WAGO 221-413 (3)</text>
+<text class="ts" x="640" y="134">Кутия: достъпна; размер, IP и температура — по оглед</text>
+<text class="ts" x="640" y="150">Клеми Shelly: 0,5–4 mm² · оголване 5–6 mm · момент 0,4 Nm</text>
+
+<!-- i4 на LINE 2: бутоните са кабелни към SW; управление на димерите е по Wi-Fi -->
+<rect class="dev" x="1065" y="75" width="390" height="150"/>
+<circle class="pin" cx="1065" cy="140" r="4"/><circle class="pin" cx="1065" cy="160" r="4"/>
+<circle class="pin" cx="1065" cy="180" r="4"/><circle class="pin" cx="1065" cy="200" r="4"/><circle class="pin" cx="1065" cy="220" r="4"/>
+<text class="tb" x="1080" y="97">I4-2 · Shelly i4 Gen4 · LINE 2</text>
+<text class="ts" x="1080" y="117">S4SN-0A24X · BUTTON 3 → SW1 · BUTTON 4 → SW2</text>
+<text class="ts" x="1080" y="145">SW1</text><text class="ts" x="1080" y="165">SW2</text>
+<text class="ts" x="1080" y="185">N</text><text class="ts" x="1080" y="205">L · захранване</text><text class="ts" x="1080" y="220">L · към бутоните</text>
+<path class="c" d="M1065 140H1155V455H1190"/><path class="c" d="M1065 160H1170V785H1190"/>
+<path class="l" d="M1065 220H1180V860H1190M1180 530H1190"/><circle class="dot" cx="1180" cy="530" r="4"/>
+<text class="wn wc" x="1147" y="449" text-anchor="end">35</text><text class="wn wc" x="1162" y="779" text-anchor="end">45</text>
+<text class="wn wl" x="1100" y="215">34</text><text class="wn wl" x="1168" y="524" text-anchor="end">40</text><text class="wn wl" x="1168" y="854" text-anchor="end">44</text>
+<text class="ts" x="1185" y="544" text-anchor="end">XBC2</text>
+
+<path class="pe bus" d="M510 115V590"/>
+<path class="n bus" d="M540 150V620"/>
+<path class="l bus" d="M570 185V860"/>
+<circle class="dot" cx="510" cy="115" r="4"/><circle class="dot" cx="540" cy="150" r="4"/><circle class="dot" cx="570" cy="185" r="4"/>
+<text class="tl" x="517" y="111">XP2</text><text class="tl" x="547" y="146">XN2</text><text class="tl" x="577" y="181">XL2</text>
+
+<!-- КАНАЛ 3 -->
+<text class="tb" x="700" y="322">КАНАЛ 3 · D3 → ZONE 3 (EL3)</text>
+<path class="pe" d="M510 260H1190"/>
+<path class="n" d="M540 290H1190"/>
+<path class="n" d="M620 290V355H680"/>
+<path class="l" d="M570 385H680"/>
+<path class="l" d="M930 385H1190"/>
+<circle class="dot" cx="510" cy="260" r="4"/><circle class="dot" cx="540" cy="290" r="4"/><circle class="dot" cx="620" cy="290" r="4"/><circle class="dot" cx="570" cy="385" r="4"/>
+<text class="wn wp" x="900" y="254">37</text><text class="wn wnn" x="900" y="284">36</text>
+<text class="wn wl" x="628" y="380">31</text><text class="wn wnn" x="648" y="350">32</text>
+<text class="wn wl" x="1000" y="380">33</text>
+<rect class="dev" x="680" y="330" width="250" height="180"/>
+<circle class="pin" cx="680" cy="355" r="4"/><circle class="pin" cx="680" cy="385" r="4"/><circle class="pinx" cx="680" cy="415" r="4"/>
+<circle class="pin" cx="930" cy="385" r="4"/><circle class="pinx" cx="930" cy="415" r="4"/><circle class="pinx" cx="930" cy="455" r="4"/><circle class="pinx" cx="930" cy="485" r="4"/>
+<path class="thin" d="M930 385H946V415H930"/><text class="ts" x="950" y="404">мост</text>
+<text class="t" x="692" y="359">N</text><text class="t" x="692" y="389">L</text><text class="t gr" x="692" y="419">L —</text>
+<text class="t" x="918" y="389" text-anchor="end">O</text><text class="t gr" x="918" y="419" text-anchor="end">O —</text><text class="t gr" x="918" y="459" text-anchor="end">S1 — NC</text><text class="t gr" x="918" y="489" text-anchor="end">S2 — NC</text>
+<text class="tb" x="805" y="400" text-anchor="middle" style="font-size:20px">D3</text>
+<text class="t" x="805" y="420" text-anchor="middle">Shelly Dimmer Gen4</text>
+<text class="ts" x="805" y="436" text-anchor="middle">S4DM-0A101WWL</text>
+<text class="ts" x="805" y="452" text-anchor="middle">1 канал · LED ≤ 150 W</text>
+<rect class="cab" x="1065" y="245" width="80" height="155" rx="8"/><text class="tl" x="1105" y="238" text-anchor="middle">W13 · 3 жила</text>
+<rect class="cab" x="1065" y="440" width="80" height="105" rx="8"/><text class="tl" x="1105" y="433" text-anchor="middle">W23 · 2 жила</text>
+<rect class="bx" x="1190" y="245" width="265" height="155"/>
+<circle class="pin" cx="1190" cy="260" r="4"/><circle class="pin" cx="1190" cy="290" r="4"/><circle class="pin" cx="1190" cy="385" r="4"/>
+<text class="t" x="1200" y="264">PE</text><text class="t" x="1200" y="294">N</text><text class="t" x="1200" y="389">L</text>
+<text class="tb" x="1250" y="322">EL3 · ZONE 3</text><text class="ts" x="1250" y="340">L6 · висящ осветител</text><text class="ts" x="1250" y="356">драйверът — проверка</text><text class="ts" x="1250" y="372">≤ 150 W на канал</text>
+<rect class="bx" x="1190" y="440" width="265" height="105"/>
+<circle class="pin" cx="1190" cy="455" r="4"/><circle class="pin" cx="1190" cy="530" r="4"/>
+<text class="t" x="1200" y="459">2</text><text class="t" x="1200" y="534">1</text>
+<path class="c" d="M1190 455H1240V480M1190 530H1240V508"/><circle class="pin" cx="1240" cy="480" r="3"/><circle class="pin" cx="1240" cy="508" r="3"/>
+<path class="thin" d="M1240 508L1263 486"/><path class="thin" d="M1252 497H1286M1286 487V507" stroke-dasharray="3 3"/>
+<text class="tb" x="1300" y="480">SB3 · BUTTON 3</text><text class="ts" x="1300" y="498">NO · към I4-2: L / SW1</text><text class="ts" x="1300" y="514">I4-2 → D3 по Wi-Fi</text>
+
+<!-- КАНАЛ 4 -->
+<text class="tb" x="700" y="652">КАНАЛ 4 · D4 → ZONE 4 (EL4)</text>
+<path class="pe" d="M510 590H1190"/>
+<path class="n" d="M540 620H1190"/>
+<path class="n" d="M620 620V685H680"/>
+<path class="l" d="M570 715H680"/>
+<path class="l" d="M930 715H1190"/>
+<circle class="dot" cx="510" cy="590" r="4"/><circle class="dot" cx="540" cy="620" r="4"/><circle class="dot" cx="620" cy="620" r="4"/><circle class="dot" cx="570" cy="715" r="4"/>
+<text class="wn wp" x="900" y="584">47</text><text class="wn wnn" x="900" y="614">46</text>
+<text class="wn wl" x="628" y="710">41</text><text class="wn wnn" x="648" y="680">42</text>
+<text class="wn wl" x="1000" y="710">43</text>
+<rect class="dev" x="680" y="660" width="250" height="180"/>
+<circle class="pin" cx="680" cy="685" r="4"/><circle class="pin" cx="680" cy="715" r="4"/><circle class="pinx" cx="680" cy="745" r="4"/>
+<circle class="pin" cx="930" cy="715" r="4"/><circle class="pinx" cx="930" cy="745" r="4"/><circle class="pinx" cx="930" cy="785" r="4"/><circle class="pinx" cx="930" cy="815" r="4"/>
+<path class="thin" d="M930 715H946V745H930"/><text class="ts" x="950" y="734">мост</text>
+<text class="t" x="692" y="689">N</text><text class="t" x="692" y="719">L</text><text class="t gr" x="692" y="749">L —</text>
+<text class="t" x="918" y="719" text-anchor="end">O</text><text class="t gr" x="918" y="749" text-anchor="end">O —</text><text class="t gr" x="918" y="789" text-anchor="end">S1 — NC</text><text class="t gr" x="918" y="819" text-anchor="end">S2 — NC</text>
+<text class="tb" x="805" y="730" text-anchor="middle" style="font-size:20px">D4</text>
+<text class="t" x="805" y="750" text-anchor="middle">Shelly Dimmer Gen4</text>
+<text class="ts" x="805" y="766" text-anchor="middle">S4DM-0A101WWL</text>
+<text class="ts" x="805" y="782" text-anchor="middle">1 канал · LED ≤ 150 W</text>
+<rect class="cab" x="1065" y="575" width="80" height="155" rx="8"/><text class="tl" x="1105" y="568" text-anchor="middle">W14 · 3 жила</text>
+<rect class="cab" x="1065" y="770" width="80" height="105" rx="8"/><text class="tl" x="1105" y="763" text-anchor="middle">W24 · 2 жила</text>
+<rect class="bx" x="1190" y="575" width="265" height="155"/>
+<circle class="pin" cx="1190" cy="590" r="4"/><circle class="pin" cx="1190" cy="620" r="4"/><circle class="pin" cx="1190" cy="715" r="4"/>
+<text class="t" x="1200" y="594">PE</text><text class="t" x="1200" y="624">N</text><text class="t" x="1200" y="719">L</text>
+<text class="tb" x="1250" y="652">EL4 · ZONE 4</text><text class="ts" x="1250" y="670">L7 + L8</text><text class="ts" x="1250" y="686">2 × GU10 фиксирани</text><text class="ts" x="1250" y="702">≤ 150 W на канал</text>
+<rect class="bx" x="1190" y="770" width="265" height="105"/>
+<circle class="pin" cx="1190" cy="785" r="4"/><circle class="pin" cx="1190" cy="860" r="4"/>
+<text class="t" x="1200" y="789">2</text><text class="t" x="1200" y="864">1</text>
+<path class="c" d="M1190 785H1240V810M1190 860H1240V838"/><circle class="pin" cx="1240" cy="810" r="3"/><circle class="pin" cx="1240" cy="838" r="3"/>
+<path class="thin" d="M1240 838L1263 816"/><path class="thin" d="M1252 827H1286M1286 817V837" stroke-dasharray="3 3"/>
+<text class="tb" x="1300" y="810">SB4 · BUTTON 4</text><text class="ts" x="1300" y="828">NO · към I4-2: L / SW2</text><text class="ts" x="1300" y="844">I4-2 → D4 по Wi-Fi</text>
+
+<text class="ts" x="30" y="925">Принципна схема: кабелните трасета се потвърждават на място. I4-2 управлява D3/D4 по локална Wi-Fi мрежа; S1/S2 на димерите са NC. PE не минава през Shelly.</text>
+
+<rect class="fr" x="10" y="950" width="880" height="90"/>
+<text class="tl" x="30" y="968">УСЛОВНИ ОЗНАЧЕНИЯ</text>
+<path class="l" d="M30 984H70"/><text class="ts" x="78" y="988">L — фаза</text>
+<path class="n" d="M170 984H210"/><text class="ts" x="218" y="988">N — нула</text>
+<path class="pe" d="M310 984H350"/><text class="ts" x="358" y="988">PE — защитен проводник</text>
+<path class="c" d="M520 984H560"/><text class="ts" x="568" y="988">бутон → i4 SW (кабелно)</text>
+<path class="wifi" d="M700 984H740"/><text class="ts" x="748" y="988">i4 → димер по Wi-Fi</text>
+<circle class="dot" cx="40" cy="1008" r="4"/><text class="ts" x="54" y="1012">свързване в клемен блок</text>
+<path class="thin" d="M240 1008H270M255 996V1020"/><text class="ts" x="278" y="1012">пресичане без връзка</text>
+<circle class="pin" cx="430" cy="1008" r="4"/><text class="ts" x="442" y="1012">клема на устройство</text>
+<circle class="pinx" cx="590" cy="1008" r="4"/><text class="ts" x="602" y="1012">неизползвана клема</text>
+<rect class="cab" x="30" y="1022" width="40" height="12" rx="4"/><text class="ts" x="78" y="1032">кабел Wxx</text>
+<text class="wn" x="170" y="1032">31</text><text class="ts" x="196" y="1032">номер на проводник (виж лист 3)</text>
+<rect class="encl" x="440" y="1021" width="40" height="14"/><text class="ts" x="488" y="1032">разклонителна кутия J</text>
+
+<rect class="fr" x="890" y="950" width="585" height="90"/>
+<path class="thin" d="M890 980H1475M890 1010H1475"/>
+<text class="ts" x="900" y="969">ПРОЕКТ</text><text class="tb" x="990" y="969">Smart lighting · апартамент · локално управление на осветление</text>
+<text class="ts" x="900" y="999">ЗАГЛАВИЕ</text><text class="tb" x="990" y="999">LINE 2 · клемна схема на свързване · D3 + D4</text>
+<text class="ts" x="900" y="1029">ЛИСТ</text><text class="tb" x="945" y="1029">2 от 3</text>
+<text class="ts" x="1015" y="1029">РЕВИЗИЯ</text><text class="tb" x="1070" y="1029">B · 09.10.2026</text>
+<text class="tl" x="1190" y="1029">ЗА ПРОВЕРКА · не е as-built</text>
+</svg>
+</section>
+
+<!-- ================= ЛИСТ 3 ================= -->
+<section class="sheet text" id="sheet3">
+<h1>ЛИСТ 3 · Спецификация на елементите, кабелен журнал и списък на проводниците</h1>
+<p>Smart lighting · апартамент · ревизия B · 09.10.2026 · <strong>ЗА ПРОВЕРКА от квалифициран електротехник. Не е as-built.</strong></p>
+
+<h2>1. Спецификация на елементите</h2>
+<table>
+<thead><tr><th>Обозн.</th><th>Елемент</th><th>Данни</th><th>Статус</th><th>Количество</th></tr></thead>
+<tbody>
+<tr><td class="m">QF1, QF2</td><td>Автоматичен прекъсвач на кръга (LINE 1, LINE 2)</td><td>Shelly изисква външна защита 16 A, характеристика B или C, 6 kA</td><td>съществуващ · проверка</td><td>2</td></tr>
+<tr><td class="m">SA1, SA2</td><td>MASTER 1 / MASTER 2 в конзолата (сериен ключ)</td><td>Прекъсва L на съответната линия; брой полюси — проверка</td><td>съществуващ</td><td>2</td></tr>
+<tr><td class="m">W01, W02</td><td>Кабел 1 (LINE 1) и кабел 2 (LINE 2) от конзолата</td><td>3 жила: L, N, PE; сечение по оглед</td><td>съществуващи</td><td>2</td></tr>
+<tr><td class="m">J1, J2</td><td>Разклонителни кутии (J1: D1+D2; J2: D3+D4)</td><td>Достъпни; размер, IP и температура — по оглед</td><td>нови</td><td>2</td></tr>
+<tr><td class="m">XL1, XL2</td><td>Клемни връзки за L</td><td>WAGO 221-415, до 5 проводника</td><td>нови</td><td>2</td></tr>
+<tr><td class="m">XN1, XN2</td><td>Клемни връзки за N</td><td>WAGO 221-416, до 6 проводника</td><td>нови</td><td>2</td></tr>
+<tr><td class="m">XP1, XP2</td><td>Клемни връзки за PE</td><td>WAGO 221-413, 3 проводника</td><td>нови</td><td>2</td></tr>
+<tr><td class="m">D1 – D4</td><td>Shelly Dimmer Gen4, един канал</td><td>S4DM-0A101WWL · 220–240 V · LED ≤ 150 W · 0,85 A · trailing edge</td><td>нови</td><td>4</td></tr>
+<tr><td class="m">I4-1, I4-2</td><td>Shelly i4 Gen4, по един на LINE 1 и LINE 2</td><td>S4SN-0A24X · L+N от собствената линия · без изход за товар</td><td>нови · проверка на място</td><td>2</td></tr>
+<tr><td class="m">SB1 – SB4</td><td>Командни бутони BUTTON 1–4</td><td>NO; кабелно към SW1/SW2 на i4 за същата линия</td><td>да се потвърдят</td><td>4</td></tr>
+<tr><td class="m">W11 – W14</td><td>Захранващи кабели към зоните</td><td>3 жила: димирана L, N, PE; сечение по оглед</td><td>по оглед</td><td>4</td></tr>
+<tr><td class="m">W21 – W24</td><td>Управляващи кабели i4 ↔ бутони</td><td>2 жила: L от i4 към бутона и връщане към SW входа на същия i4</td><td>по оглед</td><td>4</td></tr>
+<tr><td class="m">XBC1, XBC2</td><td>Разпределение на L референцията към по два бутона</td><td>WAGO 221-413, 3 проводника</td><td>нови</td><td>2</td></tr>
+<tr><td class="m">EL1 – EL4</td><td>Осветителни зони 1–4</td><td>EL1 = L1 · EL2 = L2+L3+L4 · EL3 = L6 · EL4 = L7+L8 (L5 не се ползва)</td><td>съществуващи</td><td>4</td></tr>
+</tbody>
+</table>
+
+<h2>2. Използване на клемите на Dimmer Gen4 (D1–D4 по еднакъв начин)</h2>
+<table>
+<thead><tr><th>Клема</th><th>Свързване</th><th>Проводник (пример D1)</th></tr></thead>
+<tbody>
+<tr><td class="m">L (първа)</td><td>Фаза от XL (LINE на съответната кутия)</td><td class="m">11</td></tr>
+<tr><td class="m">L (втора)</td><td>Не се използва</td><td>—</td></tr>
+<tr><td class="m">N</td><td>Нула от XN на същата линия</td><td class="m">12</td></tr>
+<tr><td class="m">O (първа)</td><td>Димирана фаза към L на зоната</td><td class="m">13</td></tr>
+<tr><td class="m">O (втора)</td><td>Вътрешно свързана с първата; не се използва</td><td>—</td></tr>
+<tr><td class="m">S1</td><td>Не се свързва (NC); управлението е през i4 и локалната Wi-Fi мрежа</td><td>—</td></tr>
+<tr><td class="m">S2</td><td>Не се свързва (NC)</td><td>—</td></tr>
+<tr><td class="m">PE</td><td>Няма клема на устройството; PE минава през XP директно към зоната</td><td class="m">17</td></tr>
+<tr><td class="m">I4 L × 2, N</td><td>L+N от собствената линия; вторият L е фазова референция към бутоните през XBC</td><td class="m">18, 19, 14, 20, 24; 38, 39, 34, 40, 44</td></tr>
+<tr><td class="m">I4 SW1–SW4</td><td>I4-1: SW1=SB1, SW2=SB2; I4-2: SW1=SB3, SW2=SB4; останалите входове свободни</td><td class="m">15, 25, 35, 45</td></tr>
+<tr><td class="m">I4 → D1–D4</td><td>Локални команди през Wi-Fi; няма електрическа връзка между i4 и S1/S2</td><td>безжично</td></tr>
+</tbody>
+</table>
+
+<h2>3. Клемни блокове</h2>
+<table>
+<thead><tr><th>Блок</th><th>Тип</th><th>Свързани проводници</th><th>Заети места</th></tr></thead>
+<tbody>
+<tr><td class="m">XL1, XL2</td><td>WAGO 221-415</td><td class="m">захранване към два димера и един i4 на линия</td><td>4 от 5 на блок</td></tr>
+<tr><td class="m">XN1, XN2</td><td>WAGO 221-416</td><td class="m">неутрал към два димера, два товара и един i4 на линия</td><td>6 от 6 на блок</td></tr>
+<tr><td class="m">XBC1, XBC2</td><td>WAGO 221-413</td><td class="m">I4.L (втори L), SBx.1, SBx.1</td><td>3 от 3 на блок</td></tr>
+<tr><td class="m">XP1, XP2</td><td>WAGO 221-413</td><td class="m">1PE/2PE и PE към двата товара на линията</td><td>3 от 3 на блок</td></tr>
+</tbody>
+</table>
+
+<h2>4. Кабелен журнал</h2>
+<table>
+<thead><tr><th>Кабел</th><th>От</th><th>До</th><th>Жила</th><th>Проводници</th><th>Статус</th></tr></thead>
+<tbody>
+<tr><td class="m">W01</td><td>Конзола (SA1)</td><td>J1</td><td>3 (L, N, PE)</td><td class="m">1L, 1N, 1PE</td><td>съществуващ</td></tr>
+<tr><td class="m">W02</td><td>Конзола (SA2)</td><td>J2</td><td>3 (L, N, PE)</td><td class="m">2L, 2N, 2PE</td><td>съществуващ</td></tr>
+<tr><td class="m">W11</td><td>J1</td><td>EL1 (ZONE 1)</td><td>3</td><td class="m">13, 16, 17</td><td>по оглед</td></tr>
+<tr><td class="m">W12</td><td>J1</td><td>EL2 (ZONE 2)</td><td>3</td><td class="m">23, 26, 27</td><td>по оглед</td></tr>
+<tr><td class="m">W13</td><td>J2</td><td>EL3 (ZONE 3)</td><td>3</td><td class="m">33, 36, 37</td><td>по оглед</td></tr>
+<tr><td class="m">W14</td><td>J2</td><td>EL4 (ZONE 4)</td><td>3</td><td class="m">43, 46, 47</td><td>по оглед</td></tr>
+<tr><td class="m">W21</td><td>I4-1 / XBC1</td><td>SB1</td><td>2</td><td class="m">20, 15</td><td>по оглед</td></tr>
+<tr><td class="m">W22</td><td>I4-1 / XBC1</td><td>SB2</td><td>2</td><td class="m">24, 25</td><td>по оглед</td></tr>
+<tr><td class="m">W23</td><td>I4-2 / XBC2</td><td>SB3</td><td>2</td><td class="m">40, 35</td><td>по оглед</td></tr>
+<tr><td class="m">W24</td><td>I4-2 / XBC2</td><td>SB4</td><td>2</td><td class="m">44, 45</td><td>по оглед</td></tr>
+</tbody>
+</table>
+
+<h2>5. Списък на проводниците</h2>
+<div class="grid2">
+<table>
+<thead><tr><th>№</th><th>От</th><th>До</th><th>Функция</th><th>Кабел</th></tr></thead>
+<tbody>
+<tr><td class="m">1L</td><td>SA1 (изход)</td><td>XL1</td><td>Фаза след MASTER 1</td><td>W01</td></tr>
+<tr><td class="m">1N</td><td>Нула LINE 1</td><td>XN1</td><td>Нула</td><td>W01</td></tr>
+<tr><td class="m">1PE</td><td>PE</td><td>XP1</td><td>Защитен</td><td>W01</td></tr>
+<tr><td class="m">11</td><td>XL1</td><td>D1.L</td><td>Захранване D1</td><td>—</td></tr>
+<tr><td class="m">12</td><td>XN1</td><td>D1.N</td><td>Нула D1</td><td>—</td></tr>
+<tr><td class="m">13</td><td>D1.O</td><td>EL1.L</td><td>Димирана фаза</td><td>W11</td></tr>
+<tr><td class="m">14</td><td>I4-1.L (втори L)</td><td>XBC1.1</td><td>Фазова референция към двата бутона</td><td>—</td></tr>
+<tr><td class="m">15</td><td>SB1.2</td><td>I4-1.SW1</td><td>Вход BUTTON 1</td><td>W21</td></tr>
+<tr><td class="m">18</td><td>XL1</td><td>I4-1.L</td><td>Захранване I4-1</td><td>—</td></tr>
+<tr><td class="m">19</td><td>XN1</td><td>I4-1.N</td><td>Нула I4-1</td><td>—</td></tr>
+<tr><td class="m">20</td><td>XBC1.2</td><td>SB1.1</td><td>L към BUTTON 1</td><td>W21</td></tr>
+<tr><td class="m">16</td><td>XN1</td><td>EL1.N</td><td>Нула към зоната</td><td>W11</td></tr>
+<tr><td class="m">17</td><td>XP1</td><td>EL1.PE</td><td>Защитен към зоната</td><td>W11</td></tr>
+<tr><td class="m">21</td><td>XL1</td><td>D2.L</td><td>Захранване D2</td><td>—</td></tr>
+<tr><td class="m">22</td><td>XN1</td><td>D2.N</td><td>Нула D2</td><td>—</td></tr>
+<tr><td class="m">23</td><td>D2.O</td><td>EL2.L</td><td>Димирана фаза</td><td>W12</td></tr>
+<tr><td class="m">24</td><td>XBC1.3</td><td>SB2.1</td><td>L към BUTTON 2</td><td>W22</td></tr>
+<tr><td class="m">25</td><td>SB2.2</td><td>I4-1.SW2</td><td>Вход BUTTON 2</td><td>W22</td></tr>
+<tr><td class="m">26</td><td>XN1</td><td>EL2.N</td><td>Нула към зоната</td><td>W12</td></tr>
+<tr><td class="m">27</td><td>XP1</td><td>EL2.PE</td><td>Защитен към зоната</td><td>W12</td></tr>
+</tbody>
+</table>
+<table>
+<thead><tr><th>№</th><th>От</th><th>До</th><th>Функция</th><th>Кабел</th></tr></thead>
+<tbody>
+<tr><td class="m">2L</td><td>SA2 (изход)</td><td>XL2</td><td>Фаза след MASTER 2</td><td>W02</td></tr>
+<tr><td class="m">2N</td><td>Нула LINE 2</td><td>XN2</td><td>Нула</td><td>W02</td></tr>
+<tr><td class="m">2PE</td><td>PE</td><td>XP2</td><td>Защитен</td><td>W02</td></tr>
+<tr><td class="m">31</td><td>XL2</td><td>D3.L</td><td>Захранване D3</td><td>—</td></tr>
+<tr><td class="m">32</td><td>XN2</td><td>D3.N</td><td>Нула D3</td><td>—</td></tr>
+<tr><td class="m">33</td><td>D3.O</td><td>EL3.L</td><td>Димирана фаза</td><td>W13</td></tr>
+<tr><td class="m">34</td><td>I4-2.L (втори L)</td><td>XBC2.1</td><td>Фазова референция към двата бутона</td><td>—</td></tr>
+<tr><td class="m">35</td><td>SB3.2</td><td>I4-2.SW1</td><td>Вход BUTTON 3</td><td>W23</td></tr>
+<tr><td class="m">38</td><td>XL2</td><td>I4-2.L</td><td>Захранване I4-2</td><td>—</td></tr>
+<tr><td class="m">39</td><td>XN2</td><td>I4-2.N</td><td>Нула I4-2</td><td>—</td></tr>
+<tr><td class="m">40</td><td>XBC2.2</td><td>SB3.1</td><td>L към BUTTON 3</td><td>W23</td></tr>
+<tr><td class="m">36</td><td>XN2</td><td>EL3.N</td><td>Нула към зоната</td><td>W13</td></tr>
+<tr><td class="m">37</td><td>XP2</td><td>EL3.PE</td><td>Защитен към зоната</td><td>W13</td></tr>
+<tr><td class="m">41</td><td>XL2</td><td>D4.L</td><td>Захранване D4</td><td>—</td></tr>
+<tr><td class="m">42</td><td>XN2</td><td>D4.N</td><td>Нула D4</td><td>—</td></tr>
+<tr><td class="m">43</td><td>D4.O</td><td>EL4.L</td><td>Димирана фаза</td><td>W14</td></tr>
+<tr><td class="m">44</td><td>XBC2.3</td><td>SB4.1</td><td>L към BUTTON 4</td><td>W24</td></tr>
+<tr><td class="m">45</td><td>SB4.2</td><td>I4-2.SW2</td><td>Вход BUTTON 4</td><td>W24</td></tr>
+<tr><td class="m">46</td><td>XN2</td><td>EL4.N</td><td>Нула към зоната</td><td>W14</td></tr>
+<tr><td class="m">47</td><td>XP2</td><td>EL4.PE</td><td>Защитен към зоната</td><td>W14</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>6. Бележки</h2>
+<ol>
+<li>Данни, на които почива схемата: два съществуващи кабела в конзолата; кабел 1 е LINE 1 (L, N, PE), кабел 2 е LINE 2 (L, N, PE). Цветове, сечения и трасета не са зададени.</li>
+<li>LINE 1 и LINE 2 не се смесват: L, N и PE на едната линия не се свързват с другата. Всеки димер получава N от същата линия.</li>
+<li>Бутоните са кабелно към входовете на своя i4: I4-1 обслужва само LINE 1 (BUTTON 1/2 → SW1/SW2), а I4-2 — само LINE 2 (BUTTON 3/4 → SW1/SW2). I4 управлява съответните димери по локална Wi-Fi мрежа.</li>
+<li>Клемите S1 и S2 на D1–D4 не се свързват. Не прокарвайте проводници между SW на i4 и S1/S2 на димерите.</li>
+<li>Кабели W21–W24 са двужилни между i4 и бутоните; наличието и трасетата им се потвърждават на място. Двата съществуващи кабела L/N/PE не се приемат като осигуряващи тези командни връзки.</li>
+<li>Всеки i4 се захранва с L+N от същата линия като обслужваните димери. Изключването на MASTER обезточва i4 и димерите по съответната линия.</li>
+<li>Всеки Dimmer Gen4 се ограничава до 150 W димируем LED и 0,85 A. Лампите трябва да са димируеми и съвместими с trailing-edge управление; L6 (EL3) се проверява по цокъл и драйвер.</li>
+<li>Клемните блокове XL/XN и XBC са оразмерени според броя проводници, показан в таблицата; електротехникът потвърждава допустимите сечения, тип проводник и монтажни условия.</li>
+<li>Работата по 230 V инсталация, проверката на защитите и приемателните измервания се извършват от квалифициран електротехник при изключено и обезопасено напрежение.</li>
+</ol>
+</section>
+</body>
+</html>

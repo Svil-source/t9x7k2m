@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f4ec">
+  <title>Списък за пазаруване | Smart Lighting</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f3f4ec;
+      --ink: #202923;
+      --muted: #59645d;
+      --line: #c9d0c8;
+      --green: #275e48;
+      --green-soft: #e2ebe2;
+      --amber: #a34d22;
+      --white: #fffef9;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.55 "Segoe UI", Tahoma, sans-serif;
+    }
+
+    main {
+      width: min(900px, calc(100% - 36px));
+      margin: 42px auto 64px;
+    }
+
+    header {
+      border-top: 7px solid var(--green);
+      padding: 27px 0 20px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+    h1 { max-width: 680px; margin: 0; font-size: clamp(34px, 7vw, 54px); line-height: 1.05; }
+    h2 { margin: 0 0 14px; font-size: 27px; scroll-margin-top: 16px; }
+    h3 { margin: 0; font-size: 20px; line-height: 1.25; }
+    h4 { margin: 26px 0 6px; font-size: 14px; color: var(--green); text-transform: uppercase; letter-spacing: .03em; }
+
+    .intro { max-width: 650px; margin: 15px 0 0; color: var(--muted); }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 13px 0 22px;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .toolbar p { margin: 0; color: var(--muted); font-size: 14px; }
+    button {
+      border: 1px solid var(--green);
+      border-radius: 3px;
+      padding: 9px 13px;
+      background: var(--green);
+      color: white;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 650;
+      cursor: pointer;
+    }
+    button:hover { background: #1e4937; }
+
+    .overview {
+      margin: 0 0 34px;
+      padding: 18px 20px;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+    .overview h2 { font-size: 21px; margin-bottom: 10px; }
+    .overview table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .overview th, .overview td { padding: 8px 6px; text-align: left; border-top: 1px solid var(--line); vertical-align: top; }
+    .overview th { font-weight: 650; }
+    .overview td:last-child, .overview th:last-child { text-align: right; white-space: nowrap; }
+    .overview tfoot td, .overview tfoot th { font-weight: 800; border-top: 2px solid var(--green); }
+    .overview .small { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+
+    nav.toc { margin: 0 0 34px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; }
+
+    section { margin: 0 0 38px; }
+    .section-note { margin: -7px 0 14px; color: var(--muted); }
+
+    .store {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 2px 9px;
+      border-radius: 3px;
+      background: var(--green-soft);
+      color: var(--green);
+      font: 700 12px/1.6 "Segoe UI", Tahoma, sans-serif;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr) auto;
+      gap: 13px;
+      align-items: start;
+      padding: 15px 0;
+      border-top: 1px solid var(--line);
+    }
+    .item:last-of-type { border-bottom: 1px solid var(--line); }
+    .item input { width: 19px; height: 19px; margin: 3px 0 0; accent-color: var(--green); }
+    .item p { margin: 5px 0 0; color: var(--muted); font-size: 15px; }
+    .price { padding-top: 2px; font-weight: 750; white-space: nowrap; text-align: right; }
+    .price small { display: block; color: var(--muted); font-weight: 500; font-size: 12px; }
+    .item label { cursor: pointer; }
+    .item input:checked + label h3 { color: var(--muted); text-decoration: line-through; }
+    .qty { color: var(--muted); font-weight: 600; font-family: "Segoe UI", Tahoma, sans-serif; font-size: 15px; }
+
+    a { color: var(--green); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--amber); }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 15px;
+      padding: 12px 16px;
+      background: var(--green-soft);
+      font-weight: 750;
+    }
+
+    .notice {
+      margin: 25px 0 0;
+      padding: 16px 18px;
+      border-left: 4px solid var(--amber);
+      background: var(--white);
+    }
+    .notice strong { display: block; margin-bottom: 4px; }
+    .notice p { margin: 0; }
+    .notice ol { margin: 6px 0 0; padding-left: 20px; }
+    .notice li { margin: 3px 0; }
+
+    .alternative {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    .alternative:last-of-type { border-bottom: 1px solid var(--line); }
+    .alternative p { margin: 5px 0 0; color: var(--muted); font-size: 15px; }
+
+    .rooms { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; margin: 0 0 8px; }
+    .room { padding: 12px 14px; background: var(--white); border: 1px solid var(--line); }
+    .room h3 { font-size: 17px; }
+    .room p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+
+    footer { margin-top: 28px; color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 560px) {
+      main { width: min(100% - 26px, 900px); margin-top: 22px; }
+      .toolbar { align-items: flex-start; flex-direction: column; }
+      .item { grid-template-columns: 25px minmax(0, 1fr); gap: 10px; }
+      .price { grid-column: 2; padding-top: 0; text-align: left; }
+      .overview { padding: 14px; }
+    }
+
+    @media print {
+      body { background: white; }
+      main { width: 100%; margin: 0; }
+      .toolbar button, .item input, nav.toc { display: none; }
+      .item { grid-template-columns: minmax(0, 1fr) auto; }
+      .item label { grid-column: 1; }
+      .price { grid-column: 2; grid-row: 1; }
+      a { color: inherit; }
+      a::after { content: " (" attr(href) ")"; font-size: 10px; overflow-wrap: anywhere; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Smart Lighting · списък за пазаруване</p>
+      <h1>Какво да купя и откъде</h1>
+      <p class="intro">Всички артикули са само от HomeMax, PRAKTIS и AmperBG. Цените са проверени онлайн на 10.10.2026 г. в евро с ДДС; наличността по магазини може да се промени, затова я провери преди да тръгнеш.</p>
+    </header>
+
+    <div class="toolbar">
+      <p>Отбелязвай купеното с отметка.</p>
+      <button type="button" onclick="window.print()">Печат на списъка</button>
+    </div>
+
+    <div class="overview">
+      <h2>Обобщение по магазини</h2>
+      <table>
+        <tbody>
+          <tr><th><a href="#homemax">HomeMax</a></th><td>нивелир и клещи за оголване</td><td>56,98 €</td></tr>
+          <tr><th><a href="#praktis-measure">PRAKTIS</a></th><td>мултицет и изолирани отвертки</td><td>45,83 €</td></tr>
+          <tr><th><a href="#praktis-legrand">PRAKTIS</a></th><td>Legrand Valena Life: ключове, контакти, рамки, RJ45</td><td>259,13 €</td></tr>
+          <tr><th><a href="#praktis-materials">PRAKTIS</a></th><td>кутии, клеми, сонда, конзоли и 4 бутона с рамки</td><td>57,03 €</td></tr>
+          <tr><th><a href="#amperbg">AmperBG</a></th><td>двуполюсен тестер за напрежение</td><td>39,60 €</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><th colspan="2">Общо (без по избор, без кабели по метър и без външни ключове за терасата)</th><td>458,57 €</td></tr>
+        </tfoot>
+      </table>
+      <p class="small">Не са включени: Shelly устройствата (195,08 € в проектната сметка), лампите и осветителите, кабелите по метър, терасните девиатори IP44 и щепселният тестер за контакти (не е намерен в трите магазина).</p>
+    </div>
+
+    <nav class="toc" aria-label="Секции">
+      <a href="#homemax">1. HomeMax — инструменти</a>
+      <a href="#praktis-measure">2. PRAKTIS — измерване</a>
+      <a href="#praktis-legrand">3. PRAKTIS — Legrand Valena Life</a>
+      <a href="#praktis-materials">4. PRAKTIS — материали за монтаж</a>
+      <a href="#amperbg">5. AmperBG</a>
+      <a href="#safety">6. Безопасност</a>
+    </nav>
+
+    <section id="homemax" aria-labelledby="homemax-heading">
+      <h2 id="homemax-heading">1. Инструменти <span class="store">HomeMax</span></h2>
+      <p class="section-note">Подравняване и подготовка на кабели, без работа по захранена инсталация.</p>
+
+      <div class="item">
+        <input id="laser" type="checkbox">
+        <label for="laser">
+          <h3><a href="https://www.home-max.bg/lazeren-nivelir-1h1v-topmaster/" target="_blank" rel="noopener">Лазерен нивелир Topmaster 1H1V</a></h3>
+          <p>Зелен лъч, обхват до 15 m, точност ±3 mm. Промоцията е обявена до 03.11.2026 г.</p>
+        </label>
+        <span class="price">49,99 €</span>
+      </div>
+
+      <div class="item">
+        <input id="stripper" type="checkbox">
+        <label for="stripper">
+          <h3><a href="https://www.home-max.bg/klesti-za-svalyane-na-izolaciya-tolsen-0-5-6-mm/" target="_blank" rel="noopener">Клещи Tolsen за сваляне на изолация, 0,5–6 mm</a></h3>
+          <p>Ръчен инструмент за оголване на проводници при изключена и обезопасена линия.</p>
+        </label>
+        <span class="price">6,99 €</span>
+      </div>
+
+      <div class="total"><span>Общо HomeMax</span><span>56,98 €</span></div>
+
+      <h4>По избор</h4>
+      <div class="item">
+        <input id="detector" type="checkbox">
+        <label for="detector">
+          <h3><a href="https://www.home-max.bg/digitalen-detektor-bosch-truvo-2/" target="_blank" rel="noopener">Дигитален детектор Bosch TRUVO 2</a></h3>
+          <p>За проверка преди пробиване на стени: открива метал и тоководещи проводници до 50 mm. Може да пропусне обекти, не прави пробиването безрисково. Промоцията е до 03.11.2026 г.</p>
+        </label>
+        <span class="price">39,99 €</span>
+      </div>
+
+      <div class="alternative">
+        <h3><a href="https://praktis.bg/komplekt-lazeren-nivelir-s-trinoga-tpm-hv-ts" target="_blank" rel="noopener">Алтернатива от PRAKTIS: лазерен нивелир със статив TPM HV TS</a></h3>
+        <p>45,80 € (промо; преди 57,25 €). Червен лъч, самонивелиране, 360°, обхват до 10 m; включва статив и куфар.</p>
+      </div>
+    </section>
+
+    <section id="praktis-measure" aria-labelledby="praktis-measure-heading">
+      <h2 id="praktis-measure-heading">2. Измерване и защита <span class="store">PRAKTIS</span></h2>
+      <p class="section-note">Двуполюсният тестер за напрежение е в секцията на AmperBG; тук са мултицетът, отвертките и личната защита.</p>
+
+      <div class="item">
+        <input id="multimeter" type="checkbox">
+        <label for="multimeter">
+          <h3><a href="https://praktis.bg/digitalen-multitset-0-2ma-10a-dc-ac-dc-200-600v-kat-iii" target="_blank" rel="noopener">Дигитален мултицет 0–2 mA…10 A, 200–600 V, КАТ III</a></h3>
+          <p>Промо цена; редовна 49,93 €. Евтин вариант: <a href="https://praktis.bg/kompakten-digitalen-multitset-220ma-dc-ac-dc-2-300v-kat-iii" target="_blank" rel="noopener">компактен мултицет до 300 V, КАТ III</a> (15,03 €). Мултицетът не заменя двуполюсния тестер за доказване, че кръгът е без напрежение.</p>
+        </label>
+        <span class="price">39,94 €</span>
+      </div>
+
+      <div class="item">
+        <input id="vde" type="checkbox">
+        <label for="vde">
+          <h3>Изолирани отвертки 1000 V (TMP): плоска, PH1 и PH2</h3>
+          <p>
+            <a href="https://praktis.bg/izolirana-prava-otvertka-tmp-1000v-cr-v-3x100mm" target="_blank" rel="noopener">плоска 3×100 mm</a> — 1,64 €;
+            <a href="https://praktis.bg/izolirana-krastata-otvertka-tmp-1000v-cr-v-ph1-h-80mm" target="_blank" rel="noopener">кръстата PH1</a> — 1,92 €;
+            <a href="https://praktis.bg/izolirana-krastata-otvertka-tmp-1000v-cr-v-ph2-h-100mm" target="_blank" rel="noopener">кръстата PH2</a> — 2,33 €. Провери маркировката 1000 V върху самите отвертки.
+          </p>
+        </label>
+        <span class="price">5,89 €</span>
+      </div>
+
+      <div class="total"><span>Общо PRAKTIS — измерване</span><span>45,83 €</span></div>
+
+      <h4>По избор</h4>
+      <div class="item">
+        <input id="glasses" type="checkbox">
+        <label for="glasses">
+          <h3><a href="https://praktis.bg/zashtitni-ochila-en166-chervena-ramka" target="_blank" rel="noopener">Защитни очила EN 166</a></h3>
+          <p>При пробиване и шлайфане.</p>
+        </label>
+        <span class="price">4,72 €</span>
+      </div>
+
+      <div class="item">
+        <input id="headlamp" type="checkbox">
+        <label for="headlamp">
+          <h3><a href="https://praktis.bg/chelnik-energizer-vision-hd" target="_blank" rel="noopener">Челник Energizer Vision HD</a></h3>
+          <p>За работа в тъмна кутия при изключено захранване.</p>
+        </label>
+        <span class="price">15,54 €</span>
+      </div>
+
+      <div class="alternative">
+        <h3>Щепселен тестер за контакти</h3>
+        <p>Не намерих такъв в HomeMax, PRAKTIS или AmperBG. Потърси го на място в магазина. Дори когато го има, показва само част от грешките и не доказва заземяването или работата на дефектнотоковата защита.</p>
+      </div>
+    </section>
+
+    <section id="praktis-legrand" aria-labelledby="praktis-legrand-heading">
+      <h2 id="praktis-legrand-heading">3. Legrand Valena Life <span class="store">PRAKTIS</span></h2>
+      <p class="section-note">Бяло за коридор, хол, кухня, баня и тераса (цветът за кухня, баня и тераса не е посочен, затова е бяло); крем за спалнята. Цените са промо с −20% (редовните са по-високи). Механизмът и рамката са отделни артикули.</p>
+
+      <div class="rooms">
+        <div class="room"><h3>Коридор</h3><p>2 девиатора, 1 двоен ключ, 2 единични контакта.</p></div>
+        <div class="room"><h3>Хол</h3><p>1 двоен ключ, 2 двойни и 8 единични контакта, RJ45 (2 порта), рамки: 3 двойни и 1 четворна.</p></div>
+        <div class="room"><h3>Спалня (крем)</h3><p>2 девиатора, 2 единични ключа, 6 единични контакта, RJ45 (2 порта), рамки: 2 двойни, 1 тройна, 1 четворна.</p></div>
+        <div class="room"><h3>Кухня</h3><p>2 двойни контакта.</p></div>
+        <div class="room"><h3>Баня</h3><p>1 контакт със защита от пръски (IP44).</p></div>
+        <div class="room"><h3>Тераса</h3><p>2 девиатора и 1 контакт със защита от влага.</p></div>
+      </div>
+
+      <h4>Бяло</h4>
+
+      <div class="item">
+        <input id="lg-w-devi" type="checkbox">
+        <label for="lg-w-devi">
+          <h3><a href="https://praktis.bg/mehanizam-za-deviatoren-klyuch-legrand-valena-life-byal" target="_blank" rel="noopener">Девиаторен ключ, бял</a> <span class="qty">× 2</span></h3>
+          <p>Коридор. 5,73 € за брой.</p>
+        </label>
+        <span class="price">11,46 €</span>
+      </div>
+
+      <div class="item">
+        <input id="lg-w-serial" type="checkbox">
+        <label for="lg-w-serial">
+          <h3><a href="https://praktis.bg/mehanizam-za-serien-klyuch-legrand-valena-life-byal" target="_blank" rel="noopener">Сериен (двоен) ключ, бял</a> <span class="qty">× 2</span></h3>
+          <p>Коридор 1, хол 1. 6,95 € за брой. „Двоен ключ“ е разбран като сериен с два клавиша; кажи, ако си имал предвид друго.</p>
+        </label>
+        <span class="price">13,90 €</span>
+      </div>
+
+      <div class="item">
+        <input id="lg-w-socket" type="checkbox">
+        <label for="lg-w-socket">
+          <h3><a href="https://praktis.bg/mehanizam-za-edinichen-kontakt-s-detska-zashtita-legrand-valena-life-byal" target="_blank" rel="noopener">Единичен контакт с детска защита, бял</a> <span class="qty">× 10</span></h3>
+          <p>Коридор 2, хол 8. 4,91 € за брой.</p>
+        </label>
+        <span class="price">49,10 €</span>
+      </div>
+
+      <div class="item">
+        <input id="lg-w-double" type="checkbox">
+        <label for="lg-w-double">
+          <h3><a href="https://praktis.bg/mehanizam-za-dvoen-kontakt-s-detska-zashtita-legrand-valena-life-byal" target="_blank" rel="noopener">Двоен контакт с детска защита, бял</a> <span class="qty">× 4</span></h3>
+          <p>Хол 2, кухня 2. 7,77 € за брой.</p>
+        </label>
+        <span class="price">31,08 €</span>
+      </div>
+
+      <div class="item">
+        <input id="lg-w-double-frame" type="checkbox">
+        <label for="lg-w-double-frame">
+          <h3><a href="https://praktis.bg/ramka-za-dvoen-kontakt-legrand-valena-life-byala" target="_blank" rel="noopener">Рамка за двоен контакт, бяла</a> <span class="qty">× 4</span></h3>
+          <p>По една за всеки двоен контакт. 3,68 € за брой.</p>
+        </label>
+        <span class="price">14,72 €</span>
+      </div>
+
+      <div class="item">
+        <input id="lg-w-rj45" type="checkbox">
+        <label for="lg-w-rj45">
+          <h3><a href="https://praktis.bg/rozetka-2xrj45-cat-5e-utp-valena-life-legrand-byala" target="_blank" rel="noopener">Розетка 2 × RJ45 CAT 5E UTP, бяла</a></h3>
+          <p>Хол (два порта). Ако искаш два отделни единични порта: <a href="https://praktis.bg/mehanizam-za-kompyutarna-rozetka-cat-5e-legrand-valena-life-byala" target="_blank" rel="noopener">1 × RJ45 CAT 5E</a> (10,23 € за брой). Типът трябва да съвпада с кабела (UTP).</p>
+        </label>
+        <span class="price">15,54 €</span>
+      </div>
+
+      <div class="item">
+        <input id="lg-w-frames" type="checkbox">
+        <label for="lg-w-frames">
+          <h3>Рамки, бели</h3>
+          <p>
+            <a href="https://praktis.bg/edinichna-ramka-legrand-valena-life-byala" target="_blank" rel="noopener">единична</a> × 3 (1,30 €) = 3,90 €;
+            <a href="https://praktis.bg/dvoyna-ramka-legrand-valena-life-byala" target="_blank" rel="noopener">двойна</a> × 4 (2,45 €) = 9,80 €;
+            <a href="https://praktis.bg/chetvorna-ramka-legrand-valena-life-byala" target="_blank" rel="noopener">четворна</a> × 1 (6,54 €).
+            Коридорът не е разписан изрично: допуснати са единични рамки за двата девиатора и сериния ключ. Ако са един до друг, вземи вместо тях <a href="https://praktis.bg/troyna-ramka-legrand-valena-life-byala" target="_blank" rel="noopener">1 тройна</a> (3,68 €).
+          </p>
+        </label>
+        <span class="price">20,24 €</span>
+      </div>
+
+      <div class="item">
+        <input id="lg-w-ip44" type="checkbox">
+        <label for="lg-w-ip44">
+          <h3><a href="https://praktis.bg/edinichen-kontakt-legrand-valena-life-16a-ip44-byal" target="_blank" rel="noopener">Единичен контакт 16 A IP44, бял</a> <span class="qty">× 2</span></h3>
+          <p>Баня 1, тераса 1. 11,25 € за брой. Наличността е променлива — провери я. IP44 е защита от пръски; ако терасата е директно под дъжд, избери контакт за външен монтаж (виж AmperBG). В баня кръгът трябва да е с дефектнотокова защита.</p>
+        </label>
+        <span class="price">22,50 €</span>
+      </div>
+
+      <div class="total"><span>Общо бяло</span><span>178,54 €</span></div>
+
+      <div class="alternative">
+        <h3>Терасата: 2 девиатора със защита от влага</h3>
+        <p>В PRAKTIS няма девиатор Valena Life с IP44. Вариант за открит монтаж е в секцията на AmperBG (Commel, IP55). Не е включен в сумата.</p>
+      </div>
+
+      <h4>Крем — спалня</h4>
+
+      <div class="item">
+        <input id="lg-c-devi" type="checkbox">
+        <label for="lg-c-devi">
+          <h3><a href="https://praktis.bg/mehanizam-za-deviatoren-klyuch-legrand-valena-life-krem" target="_blank" rel="noopener">Девиаторен ключ, крем</a> <span class="qty">× 2</span></h3>
+          <p>5,73 € за брой.</p>
+        </label>
+        <span class="price">11,46 €</span>
+      </div>
+
+      <div class="item">
+        <input id="lg-c-single" type="checkbox">
+        <label for="lg-c-single">
+          <h3><a href="https://praktis.bg/mehanizam-za-edinichen-klyuch-legrand-valena-life-krem" target="_blank" rel="noopener">Единичен ключ, крем</a> <span class="qty">× 2</span></h3>
+          <p>5,32 € за брой.</p>
+        </label>
+        <span class="price">10,64 €</span>
+      </div>
+
+      <div class="item">
+        <input id="lg-c-socket" type="checkbox">
+        <label for="lg-c-socket">
+          <h3><a href="https://praktis.bg/mehanizam-za-edinichen-kontakt-s-detska-zashtita-legrand-valena-life-krem" target="_blank" rel="noopener">Единичен контакт с детска защита, крем</a> <span class="qty">× 6</span></h3>
+          <p>4,91 € за брой.</p>
+        </label>
+        <span class="price">29,46 €</span>
+      </div>
+
+      <div class="item">
+        <input id="lg-c-rj45" type="checkbox">
+        <label for="lg-c-rj45">
+          <h3><a href="https://praktis.bg/rozetka-2xrj45-cat-5e-utp-valena-life-legrand-krem" target="_blank" rel="noopener">Розетка 2 × RJ45 CAT 5E UTP, крем</a></h3>
+          <p>Спалня (два порта). Единичен порт: <a href="https://praktis.bg/mehanizam-za-kompyutarna-rozetka-cat-5e-legrand-valena-life-krem" target="_blank" rel="noopener">1 × RJ45 CAT 5E, крем</a> (10,23 €).</p>
+        </label>
+        <span class="price">15,54 €</span>
+      </div>
+
+      <div class="item">
+        <input id="lg-c-frames" type="checkbox">
+        <label for="lg-c-frames">
+          <h3>Рамки, крем</h3>
+          <p>
+            <a href="https://praktis.bg/dvoyna-ramka-legrand-valena-life-krem" target="_blank" rel="noopener">двойна</a> × 2 (2,45 €) = 4,90 €;
+            <a href="https://praktis.bg/troyna-ramka-legrand-valena-life-krem" target="_blank" rel="noopener">тройна</a> × 1 (3,27 €);
+            <a href="https://praktis.bg/chetvorna-ramka-legrand-valena-life-krem" target="_blank" rel="noopener">четворна</a> × 1 (5,32 €).
+          </p>
+        </label>
+        <span class="price">13,49 €</span>
+      </div>
+
+      <div class="total"><span>Общо крем</span><span>80,59 €</span></div>
+      <div class="total"><span>Общо Valena Life (бяло + крем)</span><span>259,13 €</span></div>
+
+      <div class="alternative">
+        <h3>Преди поръчка</h3>
+        <p>Провери дали броят места в рамките съвпада с броя модули (RJ45 с два порта заема повече от една позиция). Подрозетниците не са включени: нужна е кутия за всеки модул, а при многоместни рамки кутиите се монтират на еднакво разстояние (в каталога на Legrand за Valena Life обикновено е 71 mm между центровете).</p>
+      </div>
+    </section>
+
+    <section id="praktis-materials" aria-labelledby="praktis-materials-heading">
+      <h2 id="praktis-materials-heading">4. Материали за монтаж <span class="store">PRAKTIS</span></h2>
+      <p class="section-note">От проекта: 2 кутии с по 2 димера (D1+D2 и D3+D4), 2 × i4 и 4 бутона с кабел до SW входовете. Количествата са ориентировъчни; кабелите се мерят на място.</p>
+
+      <div class="item">
+        <input id="box" type="checkbox">
+        <label for="box">
+          <h3><a href="https://praktis.bg/pkom-kutiya-180h140h80mm-ip54" target="_blank" rel="noopener">Разклонителна кутия ПКОМ 180×140×80 mm, IP54</a> <span class="qty">× 2</span></h3>
+          <p>По една за BOX 1 и BOX 2. Размерът е кандидат, не потвърдена годност: преди покупка пробно подреди 2 димера, клеми и кабели върху шаблон със същите размери. Ако не се събира, вземи по-голяма. i4 може да е в същата кутия само ако има място.</p>
+        </label>
+        <span class="price">8,32 €</span>
+      </div>
+
+      <div class="item">
+        <input id="wago413" type="checkbox">
+        <label for="wago413">
+          <h3><a href="https://praktis.bg/barza-universalna-klema-s-3-gnezda-wago-221-413-0-14-4-mm2-10-broya" target="_blank" rel="noopener">Клеми Wago 221-413, 3 гнезда, 10 бр.</a></h3>
+          <p>Лостови клеми за 0,14–4 mm²; подходящи за 1,5 mm². Един проводник на гнездо.</p>
+        </label>
+        <span class="price">5,32 €</span>
+      </div>
+
+      <div class="item">
+        <input id="wago415" type="checkbox">
+        <label for="wago415">
+          <h3><a href="https://praktis.bg/barza-universalna-klema-s-5-gnezda-wago-221-415-0-14-4-mm2-5-broya" target="_blank" rel="noopener">Клеми Wago 221-415, 5 гнезда, 5 бр.</a></h3>
+          <p>За по-големите възли (общ L и общ N към няколко устройства). Вземи поне 2 пакета, ако в една кутия има 2 димера и i4.</p>
+        </label>
+        <span class="price">4,50 €</span>
+      </div>
+
+      <div class="item">
+        <input id="wago412" type="checkbox">
+        <label for="wago412">
+          <h3><a href="https://praktis.bg/barza-universalna-klema-s-2-gnezda-wago-221-412-0-14-4-mm2-10-broya" target="_blank" rel="noopener">Клеми Wago 221-412, 2 гнезда, 10 бр.</a></h3>
+          <p>За прости снаждания и резерва.</p>
+        </label>
+        <span class="price">4,50 €</span>
+      </div>
+
+      <div class="item">
+        <input id="pull-probe" type="checkbox">
+        <label for="pull-probe">
+          <h3><a href="https://praktis.bg/sonda-za-izteglyane-na-kabel-commel-10m-metalna" target="_blank" rel="noopener">Сонда за изтегляне на кабел Commel, 10 m</a></h3>
+          <p>За прекарване на кабел през гофре или тръба.</p>
+        </label>
+        <span class="price">4,91 €</span>
+      </div>
+
+      <div class="item">
+        <input id="button-box" type="checkbox">
+        <label for="button-box">
+          <h3><a href="https://praktis.bg/konzolna-modulna-kutiya-za-skrita-instalatsiya" target="_blank" rel="noopener">Конзолна кутия за скрита инсталация</a> <span class="qty">× 4</span></h3>
+          <p>Под всеки бутон при зидария. При гипсокартон: <a href="https://praktis.bg/konzolna-kutiya-za-gipsokarton-itl-01d-f68-dalboka-edinichna" target="_blank" rel="noopener">единична конзола ITL 01D</a> (0,70 €). Вземи и резерва; потвърди вида на стената.</p>
+        </label>
+        <span class="price">1,36 €</span>
+      </div>
+
+      <div class="total"><span>Позиции с фиксирана цена</span><span>28,91 €</span></div>
+
+      <h4>Бутони (импулсни, 230 V)</h4>
+      <div class="item">
+        <input id="buttons" type="checkbox">
+        <label for="buttons">
+          <h3><a href="https://praktis.bg/mehanizam-za-butonen-deviatoren-klyuch-legrand-valena-life-byal" target="_blank" rel="noopener">Бутонен механизъм Valena Life, бял</a> <span class="qty">× 4</span></h3>
+          <p>5,73 € за брой, плюс 4 единични рамки по 1,30 € (<a href="https://praktis.bg/edinichna-ramka-legrand-valena-life-byala" target="_blank" rel="noopener">бяла</a>). Бутоните трябва да се връщат при отпускане. Цветът за бутоните не е посочен; има и <a href="https://praktis.bg/mehanizam-za-butonen-deviatoren-klyuch-legrand-valena-life-krem" target="_blank" rel="noopener">кремав вариант</a>. Провери в описанието на артикула, че е импулсен.</p>
+        </label>
+        <span class="price">28,12 €</span>
+      </div>
+
+      <div class="total"><span>Общо материали с бутоните</span><span>57,03 €</span></div>
+
+      <div class="alternative">
+        <h3><a href="https://praktis.bg/kabel-pvv-mb1-3h1-50mm-220-380v-100m" target="_blank" rel="noopener">Кабел ПВВ-МБ1 3×1,5 mm² (трасета до бутоните)</a></h3>
+        <p>В PRAKTIS онлайн е само ролка 100 m за 120,57 €. Ако ти трябват няколко метра, по метър има кабел CYKY в AmperBG (секция 5) — той е с твърдо жило, не е същият тип. Ако трасетата вече са положени, използвай съществуващите жила.</p>
+      </div>
+      <div class="alternative">
+        <h3><a href="https://praktis.bg/osvetlenie-i-el-materiali/elektromateriali/kabelen-kanal" target="_blank" rel="noopener">Кабелен канал и гофре</a></h3>
+        <p>Само за участъци, където кабелът минава открито; размерът е според броя и диаметъра на кабелите.</p>
+      </div>
+    </section>
+
+    <section id="amperbg" aria-labelledby="amperbg-heading">
+      <h2 id="amperbg-heading">5. Отделен магазин <span class="store">AmperBG</span></h2>
+      <p class="section-note">Отделен източник: артикулите тук не се повтарят в другите секции. Цените са от страниците на артикулите; наличността потвърди в магазина.</p>
+
+      <div class="item">
+        <input id="two-pole" type="checkbox">
+        <label for="two-pole">
+          <h3><a href="https://amperbg.com/detektor-na-naprezhenie-sas-sondi-cat-iii-6400vac-dc-led-testboy-40-plus-testboy/" target="_blank" rel="noopener">Двуполюсен тестер за напрежение Testboy 40 Plus, КАТ III, 6–400 V</a></h3>
+          <p>Основният уред за проверка, че кръгът е без напрежение: две сонди, LED индикация. Не заменяй проверката с безконтактен индикатор или фазомер. По-висок клас (12–690 V): <a href="https://amperbg.com/detektor-na-naprezhenie-sas-sondi-cat-iii-12690vac-dc-led-i-zvuk-testboy-40-simple-testboy/" target="_blank" rel="noopener">Testboy 40 Simple</a> (59,76 €).</p>
+        </label>
+        <span class="price">39,60 €</span>
+      </div>
+
+      <div class="item">
+        <input id="cyky" type="checkbox">
+        <label for="cyky">
+          <h3><a href="https://amperbg.com/cyky-j-3x1-50-nkt/" target="_blank" rel="noopener">Кабел CYKY-J 3×1,50 NKT</a> <span class="qty">по метър</span></h3>
+          <p>Продава се на метър — за трасетата до бутоните, без цяла ролка. Твърдо жило, за фиксирано полагане; не е заместител на гъвкавия ПВВ-МБ1 там, където кабелът се огъва често. Измери трасетата и добави около 1 m запас на бутон.</p>
+        </label>
+        <span class="price">1,46 €<small>за метър</small></span>
+      </div>
+
+      <div class="item">
+        <input id="outdoor-socket" type="checkbox">
+        <label for="outdoor-socket">
+          <h3><a href="https://amperbg.com/kontakt-shuko-za-otkrit-montazh-ip56-pri-vklyuchen-konsumator-tsvyat-antratsit-commel/" target="_blank" rel="noopener">Контакт шуко Commel за открит монтаж, антрацит</a></h3>
+          <p>Вариант за терасата вместо Valena IP44. Не е Valena Life, цветът е антрацит. Заглавието на страницата казва IP56, а описанието — IP55; потвърди класа и пригодността за мястото при търговеца.</p>
+        </label>
+        <span class="price">5,45 €</span>
+      </div>
+
+      <div class="item">
+        <input id="outdoor-switch" type="checkbox">
+        <label for="outdoor-switch">
+          <h3><a href="https://amperbg.com/product-category/klyuchove-i-kontakti/klyuchove-i-kontakti-commel/" target="_blank" rel="noopener">Ключове Commel за открит монтаж (IP55)</a></h3>
+          <p>Терасата изисква 2 девиатора със защита от влага. Сериен ключ IP55 е <a href="https://amperbg.com/serien-klyuch-za-otkrit-montazh-ip55-tsvyat-antratsit-commel/" target="_blank" rel="noopener">на 6,20 €</a>; девиатор потърси в категорията.</p>
+        </label>
+        <span class="price">по модел</span>
+      </div>
+
+      <div class="alternative">
+        <h3>Допълнителни категории</h3>
+        <p>
+          <a href="https://amperbg.com/product-category/klyuchove-i-kontakti/legrand/" target="_blank" rel="noopener">Ключове и контакти Legrand</a> ·
+          <a href="https://amperbg.com/product-category/komunikatsionni-kabeli/" target="_blank" rel="noopener">Комуникационни кабели (напр. Cat.5e F/UTP LCS3 Legrand — потвърди цената и единицата)</a> ·
+          <a href="https://amperbg.com/product-category/kabeli-i-provodnitsi/" target="_blank" rel="noopener">Кабели и проводници</a> ·
+          <a href="https://amperbg.com/product-category/elektromateriali/" target="_blank" rel="noopener">Електроматериали</a> ·
+          <a href="https://amperbg.com/product-category/instrumenti/testboy/" target="_blank" rel="noopener">Testboy — уреди за измерване</a>
+        </p>
+      </div>
+
+      <div class="total"><span>Общо AmperBG (тестерът)</span><span>39,60 €</span></div>
+    </section>
+
+    <aside id="safety" class="notice">
+      <strong>6. Безопасна работа по 230 V (минимум преди да пипнеш проводник)</strong>
+      <ol>
+        <li>Изключи автоматичния предпазител на съответната линия и го обозначи или заключи, за да не бъде включен от друг.</li>
+        <li>Провери с двуполюсен тестер, че на проводниците няма напрежение: първо на известно живо място (за да видиш, че тестерът работи), после на работните проводници, после пак на известното. Безконтактен индикатор, фазомер или мултицет не са достатъчни.</li>
+        <li>Не разчитай на цвета на жилото — маркирай и снимай преди откачане.</li>
+        <li>Не снаждай извън кутия; всяка връзка е в кутия с достъпен капак.</li>
+        <li>След монтажа включи линията, провери че дефектнотоковата защита (ако има) не задейства, и тествай всеки бутон и всяка зона.</li>
+        <li>Спри, ако нещо не съвпада със схемата (неочакван проводник, липсващ нулев, топли или стари проводници).</li>
+      </ol>
+      <p style="margin-top:10px">Монтажът без електротехник може да противоречи на местната наредба или на застраховката ти; провери това преди да започнеш. Щепселният тестер проверява само част от грешките; за заземяване и защити е нужен специализиран измервателен уред.</p>
+    </aside>
+
+    <footer>
+      Магазини: <a href="https://www.home-max.bg/" target="_blank" rel="noopener">HomeMax</a>, <a href="https://praktis.bg/" target="_blank" rel="noopener">PRAKTIS</a> и <a href="https://amperbg.com/" target="_blank" rel="noopener">AmperBG</a>.
+    </footer>
+  </main>
+</body>
+</html>
